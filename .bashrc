@@ -123,8 +123,13 @@ if [ "$PS1" ]; then
 fi
 
 
-# for Perl module module development
-alias distbuild='export RELEASE_TESTING=1 && perl Build.PL && ./Build && ./Build test && ./Build disttest && ./Build distclean && export RELEASE_TESTING=0'
 
 # Show size of each subdir
 alias ducks='du -cks *|sort -rn|head -11'
+
+
+# for Perl module module development
+alias distbuild='export RELEASE_TESTING=1 && perl Build.PL && ./Build && ./Build test && ./Build disttest && ./Build distclean && export RELEASE_TESTING=0'
+
+# to print the version of any Perl module specified
+function pmver () { perl -M$1 -le "print $1->VERSION"; }
