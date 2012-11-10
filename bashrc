@@ -5,16 +5,24 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-HISTCONTROL=ignoreboth
-
-# append to the history file, don't overwrite it
+# Stolen from https://github.com/greenmoss/home/blob/master/.bashrc
+export PAGER=less
+export HISTIGNORE="&:ls:[bf]g:exit:[ \t]*"
+HISTSIZE=500000
+HISTFILESIZE=5000000
+# ensure multi-line commands stay as a single history command
+shopt -s cmdhist
+# do not string together multi-line commands with semi-colons in history
+shopt -s lithist
+shopt -s histverify
+# append bash history
 shopt -s histappend
+# expand aliases for non-login shell
+shopt -s expand_aliases
+# vi mode
+set -o vi
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
