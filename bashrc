@@ -133,3 +133,7 @@ alias distbuild='export RELEASE_TESTING=1 && perl Build.PL && ./Build && ./Build
 
 # to print the version of any Perl module specified
 function pmver () { perl -M$1 -le "print $1->VERSION"; }
+
+
+# Easy way to run all tests on the Perl CPAN modules I am developing
+alias run_tests='export RELEASE_TESTING=1 &&  prove -r -I lib -I ~/. t/ &&   export RELEASE_TESTING=0'
