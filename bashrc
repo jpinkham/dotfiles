@@ -6,6 +6,8 @@
 [ -z "$PS1" ] && return
 
 # Stolen from https://github.com/greenmoss/home/blob/master/.bashrc
+export EDITOR=vim
+export VISUAL=$EDITOR
 export PAGER=less
 export HISTIGNORE="&:ls:[bf]g:exit:[ \t]*"
 HISTSIZE=500000
@@ -19,9 +21,6 @@ shopt -s histverify
 shopt -s histappend
 # expand aliases for non-login shell
 shopt -s expand_aliases
-# vi mode
-set -o vi
-
 
 
 # check the window size after each command and, if necessary,
