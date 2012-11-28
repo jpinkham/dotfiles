@@ -135,15 +135,27 @@ fi
 alias ducks='du -cks *|sort -rn|head -11'
 
 
-# for Perl module module development
-alias distbuild='export RELEASE_TESTING=1 && perl Build.PL && ./Build && ./Build test && ./Build disttest && ./Build distclean && export RELEASE_TESTING=0'
-
 # to print the version of any Perl module specified
 function pmver () { perl -M$1 -le "print $1->VERSION"; }
 
-
-# Easy way to run all tests on the Perl CPAN modules I am developing
-alias run_tests='export RELEASE_TESTING=1 &&  prove -r -I lib -I ~/. t/ &&   export RELEASE_TESTING=0'
+# Lists modules specified author has starred on metacpan. Specify author id. Requires Mojolicious. From https://gist.github.com/4030168
+cpan_favorites() {
+  perl -Mojo -E "g('https://metacpan.org/author/$1')->dom('td.release a')->pluck('text')->each(sub{s/-/::/g;say})"
+}
 
 # to flush memcached
 alias flush_memcache="echo flush_all | nc localhost 11211"
+
+
+
+### handy for Perl CPAN developers
+
+# for Perl module module development
+alias distbuild='export RELEASE_TESTING=1 && perl Build.PL && ./Build && ./Build test && ./Build disttest && ./Build distclean && export RELEASE_TESTING=0'
+
+# Easy way to run all tests on the Perl CPAN modules I am developing, that require a config file in my home dir. 
+alias run_tests='export RELEASE_TESTING=1 && prove -r -I lib -I ~/. t/ && export RELEASE_TESTING=0'
+
+# Determine test coverage with Devel::Cover, for Perl modules I am developing
+alias test_coverage='cover -delete && export HARNESS_PERL_SWITCHES=-MDevel::Cover && run_tests && cover -report html && export HARNESS_PERL_SWITCHES=""'
+
