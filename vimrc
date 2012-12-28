@@ -13,3 +13,6 @@ filetype plugin on
 
 " if syntax highlighting is supported, turn it on
 syntax on
+
+" Add a colored bar at column 80 for a wrap margin. Tip from https://coderwall.com/p/uu7-aa
+set colorcolumn=80
