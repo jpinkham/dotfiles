@@ -16,3 +16,11 @@ syntax on
 
 " Add a colored bar at column 80 for a wrap margin. Tip from https://coderwall.com/p/uu7-aa
 set colorcolumn=80
+
+" To spell check all git commit messages
+au BufNewFile,BufRead COMMIT_EDITMSG set spell
+
+" Underline misspelled words
+hi clear SpellBad
+hi SpellBad cterm=underline
+
