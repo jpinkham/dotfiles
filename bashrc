@@ -154,8 +154,15 @@ alias flush_memcache="echo flush_all | nc localhost 11211"
 alias distbuild='export RELEASE_TESTING=1 && perl Build.PL && ./Build && ./Build test && ./Build disttest && ./Build distclean && export RELEASE_TESTING=0'
 
 # Easy way to run all tests on the Perl CPAN modules I am developing, that require a config file in my home dir. 
-alias run_tests='export RELEASE_TESTING=1 && prove -r -I lib -I ~/. t/ && export RELEASE_TESTING=0'
+alias run_dist_tests='export RELEASE_TESTING=1 && prove -r -I lib -I ~/. t/ && export RELEASE_TESTING=0'
+alias run_tests='prove -r -I lib -I ~/. t/'
 
 # Determine test coverage with Devel::Cover, for Perl modules I am developing
-alias test_coverage='cover -delete && export HARNESS_PERL_SWITCHES=-MDevel::Cover && run_tests && cover -report html && export HARNESS_PERL_SWITCHES=""'
+alias test_coverage='export HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,\\.t$" && remove_taint && run_tests && cover -report html_basic && export HARNESS_PERL_SWITCHES="" '
+
+# Temporarily strip "-T" from Perl shebang line so Devel::Cover will work. 
+# use "git reset --hard HEAD" to get back to orig state, but only if you have no other changes!
+#alias remove_taint="find . -path '*/.git' -prune -o -path '*/data'  -prune -o -type f -exec perl -pi -0777 -e 's/perl -T/perl/sg' {} \;"
+alias remove_taint="sed -i 's/perl -T/perl/' t/*"
+alias add_taint="sed -i 's/\!perl/\!perl -T/' t/*"
 
