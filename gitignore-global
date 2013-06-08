@@ -1,6 +1,15 @@
-# when you're in the middle of a build...
-*blib
-_build
+# # From https://github.com/github/gitignore/blob/master/Perl.gitignore
+blib/
+_build/
+inc/
+Build
+Build.bat
+Makefile
+MYMETA.yml
+nytprof.out
+pm_to_blib
+MYMETA.json
+
 # Devel::Cover database
 *cover_db
 # http://coveralls.io   config file, contains private key
