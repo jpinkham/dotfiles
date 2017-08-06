@@ -24,3 +24,10 @@ au BufNewFile,BufRead COMMIT_EDITMSG set spell
 hi clear SpellBad
 hi SpellBad cterm=underline
 
+
+""Abbreviations, for Perl programmers
+ab ld $LOGGER->debug(" ");
+ab lerr $LOGGER->error(" ");
+ab lw $LOGGER->warn(" "); 
+
+
