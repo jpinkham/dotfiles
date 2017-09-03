@@ -171,6 +171,11 @@ alias test_coverage='export HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,\\.t$"
 alias remove_taint="sed -i 's/perl -T/perl/' t/*"
 alias add_taint="sed -i 's/\!perl/\!perl -T/' t/*"
 
+### END handy for Perl CPAN developers
+
+
 alias find_large_files="find . -size +5000000c 2>/dev/null -exec ls -l {} \;"
 
 
+# Use vim as a pager, with syntax highlighting
+alias vless='vim -u /usr/share/vim/vim80/macros/less.vim'
