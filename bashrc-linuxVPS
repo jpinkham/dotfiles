@@ -93,6 +93,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lt='ls -lt'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -179,3 +180,6 @@ alias find_large_files="find . -size +5000000c 2>/dev/null -exec ls -l {} \;"
 
 # Use vim as a pager, with syntax highlighting
 alias vless='vim -u /usr/share/vim/vim80/macros/less.vim'
+
+# easy reverse lookup on IP addresses
+alias arin='whois -h whois.arin.net $1'
