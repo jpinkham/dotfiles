@@ -30,4 +30,5 @@ ab ld $LOGGER->debug(" ");
 ab lerr $LOGGER->error(" ");
 ab lw $LOGGER->warn(" "); 
 
+highlight Comment ctermbg=DarkGray
 
