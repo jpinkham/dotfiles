@@ -95,7 +95,6 @@ alias la='ls -A'
 alias lt='ls -alt'
 alias lth='ls -alt|head'
 
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -182,6 +181,5 @@ alias find_large_files="find . -size +5000000c 2>/dev/null -exec ls -l {} \;"
 # Use vim as a pager, with syntax highlighting
 alias vless='vim -u /usr/share/vim/vim80/macros/less.vim'
 
-
-# Retrieve IP address data/assigned netblocks for the specified ip address 
+# easy reverse lookup on IP addresses
 alias arin='whois -h whois.arin.net $1'
