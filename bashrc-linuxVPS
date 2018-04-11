@@ -81,19 +81,7 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
 fi
-
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias lt='ls -alt'
-alias lth='ls -alt|head'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -133,11 +121,6 @@ if [ "$PS1" ]; then
 fi
 
 
-
-# Show size of each subdir
-alias ducks='du -cks *|sort -rn|head -11'
-
-
 # to print the version of any Perl module specified
 function pmver () { perl -M$1 -le "print $1->VERSION"; }
 
@@ -145,41 +128,3 @@ function pmver () { perl -M$1 -le "print $1->VERSION"; }
 cpan_favorites() {
   perl -Mojo -E "g('https://metacpan.org/author/$1')->dom('td.release a')->pluck('text')->each(sub{s/-/::/g;say})"
 }
-
-# to flush memcached
-alias flush_memcache="echo flush_all | nc localhost 11211"
-
-
-
-### handy for Perl CPAN developers
-
-# for Perl module module development
-alias distbuild='./Build distclean; export RELEASE_TESTING=1 && perl Build.PL && ./Build && ./Build distcheck ./Build test && ./Build disttest && ./Build distclean && export RELEASE_TESTING=0'
-
-# Run the tests we only care about when building a release
-alias run_dist_tests='export RELEASE_TESTING=1 && prove -r -v -I lib -I ~/. xt/ && export RELEASE_TESTING=0'
-
-# Easy way to run all tests on the Perl CPAN modules I am developing, that require a config file in my home dir. 
-alias run_tests='prove -r -I lib -I ~/. t/'
-
-# Determine test coverage with Devel::Cover, for Perl modules I am developing
-alias test_coverage_remove_taint='export HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,\\.t$" && remove_taint && run_tests && cover -report html_basic && export HARNESS_PERL_SWITCHES="" && add_taint'
-alias test_coverage='export HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,\\.t$" && run_tests && cover -report html_basic && export HARNESS_PERL_SWITCHES="" '
-
-# Temporarily strip "-T" from Perl shebang line so Devel::Cover will work. 
-# use "git reset --hard HEAD" to get back to orig state, but only if you have no other changes!
-#alias remove_taint="find . -path '*/.git' -prune -o -path '*/data'  -prune -o -type f -exec perl -pi -0777 -e 's/perl -T/perl/sg' {} \;"
-alias remove_taint="sed -i 's/perl -T/perl/' t/*"
-alias add_taint="sed -i 's/\!perl/\!perl -T/' t/*"
-
-### END handy for Perl CPAN developers
-
-
-alias find_large_files="find . -size +5000000c 2>/dev/null -exec ls -l {} \;"
-
-
-# Use vim as a pager, with syntax highlighting
-alias vless='vim -u /usr/share/vim/vim80/macros/less.vim'
-
-# easy reverse lookup on IP addresses
-alias arin='whois -h whois.arin.net $1'
