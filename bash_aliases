@@ -25,6 +25,7 @@ alias listen_ports="netstat -p tcp -a|grep LISTEN"
 
 # Always use python3
 alias python=python3
+alias pip=pip3
 
 # displays the registered owners of the netblock containing specified IP address
 alias arin='whois -h whois.arin.net $1'
