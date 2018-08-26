@@ -15,9 +15,8 @@ alias lt='ls -lt'
 alias lth='ls -alt|head'
 
 
-
-# use human readable sizes, in TB, GB, or MB
-alias df='df -H'
+# show local partitions only, use human readable sizes, and hide inodes section
+alias df='df -PHl'
 
 # Display all TCP ports that have a listener
 # TODO  There is likely a better way to do this
