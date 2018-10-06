@@ -24,6 +24,13 @@ au BufNewFile,BufRead COMMIT_EDITMSG set spell
 hi clear SpellBad
 hi SpellBad cterm=underline
 
+""Abbreviations, for Perl programmers
+ab ld $LOGGER->debug(" ");
+ab lerr $LOGGER->error(" ");
+ab lw $LOGGER->warn(" "); 
+
+highlight Comment ctermbg=DarkGray
+
 
 """"" From https://defuse.ca/vimrc.htm
 " Use unix line endings (LF) unless the file already has DOS line endings
