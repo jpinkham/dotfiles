@@ -9,14 +9,15 @@ alias find_large_files='find . -size +500M 2>/dev/null -exec ls -lh {} \;'
 # my most common ls commands
 alias ls="ls -Gh"  #colored output, human-readable file sizes
 alias ll='ls -al'
-#sort by time
+# sort by time
 alias lt='ls -lt'
-#10 most recent files
+# 10 most recent files
 alias lth='ls -alt|head'
+# list only subdirs of the current dir (no files)
+alias lsdir='ls -d */'
 
 
-
-# use human readable sizes, in TB, GB, or MB
+# disk usage, with human readable sizes (TB, GB, or MB)
 alias df='df -H'
 
 # Display all TCP ports that have a listener
@@ -28,7 +29,18 @@ alias listen_ports="netstat -p tcp -a|grep LISTEN"
 alias python=python3
 
 # displays the registered owners of the netblock containing specified IP address
-alias arin='whois -h whois.arin.net $1'
+alias arin="whois -h whois.arin.net $1"
+alias ripe="whois -h whois.ripe.net $1"
+alias apnic="whois -h whois.apnic.net $1"
+
+# ARIN: Find all contact emails for specified domain
+alias arin_email='whois -h whois.arin.net + e @$1'
+
+# nicer diff output; easier to make sense of
+alias diff='diff --suppress-common-lines --side-by-side --color'
+
+# Pretty Print json
+alias jsonpp="python -m json.tool $1"
 
 
 
