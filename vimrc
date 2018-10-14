@@ -24,7 +24,6 @@ au BufNewFile,BufRead COMMIT_EDITMSG set spell
 hi clear SpellBad
 hi SpellBad cterm=underline
 
-
 ""Abbreviations, for Perl programmers
 ab ld $LOGGER->debug(" ");
 ab lerr $LOGGER->error(" ");
@@ -32,3 +31,25 @@ ab lw $LOGGER->warn(" ");
 
 highlight Comment ctermbg=DarkGray
 
+
+""""" From https://defuse.ca/vimrc.htm
+" Use unix line endings (LF) unless the file already has DOS line endings
+set fileformats=unix,dos
+" Set the initial buffer to unix line endings
+set fileformat=unix
+set background=dark
+" Highlight unwanted whitespace
+highlight TrailingWhitespace ctermbg=red guibg=red
+highlight TabWhitespace ctermbg=darkgreen guibg=darkgreen
+highlight DoubleSpaceAfterPeriod ctermbg=red guibg=red
+autocmd Syntax * syn match TrailingWhitespace /\s\+$/
+autocmd Syntax * syn match TabWhitespace /[\t]/
+autocmd Syntax * syn match DoubleSpaceAfterPeriod /\.  /
+" Highlight the line the cursor is on
+set cursorline
+" Status line content
+set statusline=%n:\ %F\ [%{&ff}]%y%m%h%w%r\ %=[char:\ 0x%B]\ \[column:\ %v]\ [line:\ %l\ of\ %L\ \(%p%%\)]\
+" Quickly jump to opening brace and back to avoid mistakes
+set showmatch
+" Line numbers
+set nu

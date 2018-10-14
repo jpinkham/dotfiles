@@ -5,12 +5,11 @@ hardstatus alwayslastline
 #hardstatus string '%{gk}[ %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m/%d %{W}%C%a %{g}]'
 
 
-#supplied by https://gist.github.com/joaopizani/2718397
-
+#status line taken from https://gist.github.com/joaopizani/2718397
 hardstatus string '%{= kG}[%{G}%H%? %1`%?%{g}][%= %{= kw}%-w%{+b yk} %n*%t%?(%u)%? %{-}%+w %=%{g}][%{B}%m/%d %{W}%C%A%{g}]'
 
 # huge scrollback buffer
-defscrollback 5000
+defscrollback 50000
 
 # no welcome message
 startup_message off
