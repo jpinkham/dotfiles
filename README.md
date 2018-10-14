@@ -13,4 +13,7 @@ bashrc-osx: bash customizations for my MacBook, including some OSX-specific
     will run ~/.profile.  I was able to get around this by soft-linking 
     .bashrc to .profile.	 
 gitignore-global: Files that git should ignore that may be in your local dir
-    that you want to sync with git. Ex: OS-generated files,  
+    that you want to sync with git. Ex: OS-generated files
+htoprc-*: Configs for 'htop' system utility. Think 'top' but better.
+    Includes a version for a multi-core laptop (includes all cores + battery)
+    and a single-core VM.
