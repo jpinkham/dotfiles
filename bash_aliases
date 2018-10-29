@@ -43,14 +43,3 @@ alias diff='diff --suppress-common-lines --side-by-side --color'
 # Pretty Print json
 alias jsonpp="python -m json.tool $1"
 
-
-######## for CPAN developers ########
-alias distbuild='./Build distclean; export RELEASE_TESTING=1 && perl Build.PL && ./Build && ./Build distcheck ./Build test && ./Build disttest && ./Build distclean && export RELEASE_TESTING=0'
-alias run_dist_tests='export RELEASE_TESTING=1 && prove -r -v -I lib -I ~/. xt/ && export RELEASE_TESTING=0'
-alias run_tests='prove -r -I lib -I ~/. t/'
-alias test_coverage_remove_taint='export HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,\\.t$" && remove_taint && run_tests && cover -report html_basic && export HARNESS_PERL_SWITCHES="" && add_taint'
-alias test_coverage='export HARNESS_PERL_SWITCHES="-MDevel::Cover=+ignore,\\.t$" && run_tests && cover -report html_basic && export HARNESS_PERL_SWITCHES="" '
-#alias remove_taint="find . -path '*/.git' -prune -o -path '*/data'  -prune -o -type f -exec perl -pi -0777 -e 's/perl -T/perl/sg' {} \;"
-alias remove_taint="sed -i 's/perl -T/perl/' t/*"
-alias add_taint="sed -i 's/\!perl/\!perl -T/' t/*"
-######## END for CPAN developers ########
