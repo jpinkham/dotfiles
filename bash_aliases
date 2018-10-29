@@ -17,8 +17,8 @@ alias lth='ls -alt|head'
 alias lsdir='ls -d */'
 
 
-# disk usage, with human readable sizes (TB, GB, or MB)
-alias df='df -H'
+# show local partitions only, use human readable sizes, and hide inodes section
+alias df='df -PHl'
 
 # Display all TCP ports that have a listener
 # TODO  There is likely a better way to do this
@@ -27,6 +27,7 @@ alias listen_ports="netstat -p tcp -a|grep LISTEN"
 
 # Always use python3
 alias python=python3
+alias pip=pip3
 
 # displays the registered owners of the netblock containing specified IP address
 alias arin="whois -h whois.arin.net $1"
