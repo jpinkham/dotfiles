@@ -43,3 +43,6 @@ alias diff='diff --suppress-common-lines --side-by-side --color'
 # Pretty Print json
 alias jsonpp="python -m json.tool $1"
 
+# mtr - My TraceRoute
+#      No annoying GUI IPv4  Show ASN               Show IP and DNS name
+alias mtr='mtr --curses -4 --ipinfo 1 --order "SRDLNA" --show-ips'
