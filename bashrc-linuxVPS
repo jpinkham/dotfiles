@@ -101,6 +101,7 @@ fi
 
 
 # Git command completion
+#https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 source $HOME/git-completion.bash
 
 # Prompt shows state of Git, when in repository directories
