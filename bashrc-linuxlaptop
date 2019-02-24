@@ -5,14 +5,28 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# don't put duplicate lines in the history. See bash(1) for more options
-export HISTCONTROL=ignoredups
+# several history-related options taken from https://github.com/greenmoss/home/blob/master/.bashrc
+export EDITOR=vim
+export VISUAL=$EDITOR
+export PAGER=less
+export HISTIGNORE="&:ls:[bf]g:exit:[ \t]*"
+HISTSIZE=50000000
+HISTFILESIZE=500000000
+HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
 
-# huge number of history commands to remember and huge bash history file allowed
-HISTSIZE=5000000
-HISTFILESIZE=500000000
+# ensure multi-line commands stay as a single history command
+shopt -s cmdhist
+# do not string together multi-line commands with semi-colons in history
+shopt -s lithist
+shopt -s histverify
+# append bash history
+shopt -s histappend
+
+
+# expand aliases for non-login shell
+shopt -s expand_aliases
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
