@@ -11,6 +11,8 @@ alias ls="ls -Gh"  #colored output, human-readable file sizes
 alias ll='ls -al'
 # sort by time
 alias lt='ls -lt'
+# reverse sort by time
+alias ltr='ls latr'
 # 10 most recent files
 alias lth='ls -alt|head'
 # list only subdirs of the current dir (no files)
@@ -40,9 +42,16 @@ alias arin_email='whois -h whois.arin.net + e @$1'
 # nicer diff output; easier to make sense of
 alias diff='diff --suppress-common-lines --side-by-side --color'
 
-# Pretty Print json
+# Pretty Print json -- requires package "pretty-json" 
 alias jsonpp="python -m json.tool $1"
 
 # mtr - My TraceRoute
-#      No annoying GUI IPv4  Show ASN               Show IP and DNS name
-alias mtr='mtr --curses -4 --ipinfo 1 --order "SRDLNA" --show-ips'
+#      No annoying GUI IPv4  Show ASN  Use TCP              Show IP and DNS name
+alias mtr='mtr --curses -4 --ipinfo 1  --tcp --order "SRDLNA" --show-ips'
+# NOTE: Set to use tcp so it's less likely the traffic will be de-prioritized, therefore making it more likely any packet loss numbers can be trusted
+
+
+# display the packages installed on the specified date (only works for the current logfile; doesn't search gzipped historical
+#  THIS DOESNT WORK; too many things escaped maybe; keep working on it
+#alias installed_what="sudo grep 'status installed' /var/log/dpkg.log | grep $1 |awk '{print $5}'|cut -d ':' -f 1|sort"
+
