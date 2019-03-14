@@ -10,11 +10,15 @@ export EDITOR=vim
 export VISUAL=$EDITOR
 export PAGER=less
 export HISTIGNORE="&:ls:[bf]g:exit:[ \t]*"
-HISTSIZE=50000000
-HISTFILESIZE=500000000
-HISTCONTROL=ignoredups
+export HISTSIZE=50000000
+export HISTFILESIZE=500000000
+export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
 export HISTCONTROL=ignoreboth
+
+#Source: https://stackoverflow.com/questions/38526588/linux-command-history-with-date-and-time
+export HISTTIMEFORMAT="%Y-%m-%d %T "
+
 
 # ensure multi-line commands stay as a single history command
 shopt -s cmdhist
@@ -91,6 +95,7 @@ alias ls="ls --color -Gph"
 
 # Git command completion
 source $HOME/git-completion.bash
+# Latest version available at https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 
 # Prompt shows state of Git, when in repository directories
 export GIT_PS1_SHOWDIRTYSTATE=1
