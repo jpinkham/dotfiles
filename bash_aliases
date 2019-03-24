@@ -51,7 +51,5 @@ alias mtr='mtr --curses -4 --ipinfo 1  --tcp --order "SRDLNA" --show-ips'
 # NOTE: Set to use tcp so it's less likely the traffic will be de-prioritized, therefore making it more likely any packet loss numbers can be trusted
 
 
-# display the packages installed on the specified date (only works for the current logfile; doesn't search gzipped historical
-#  THIS DOESNT WORK; too many things escaped maybe; keep working on it
-#alias installed_what="sudo grep 'status installed' /var/log/dpkg.log | grep $1 |awk '{print $5}'|cut -d ':' -f 1|sort"
-
+# netdiscover local network -- when I need a quick list of what is on the network, via ip, including MAC and hw manuf name
+alias netdiscover-192='sudo netdiscover  -P -N -L -r 192.168.1.0/24'
