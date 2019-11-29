@@ -23,8 +23,7 @@ alias lsdir='ls -d */'
 alias df='df -PHl'
 
 # Display all TCP ports that have a listener
-# TODO  There is likely a better way to do this
-alias listen_ports="netstat -p tcp -a|grep LISTEN"
+alias listen_ports="sudo netstat -nlpt"
 
 
 # Always use python3
@@ -53,3 +52,6 @@ alias mtr='mtr --curses -4 --ipinfo 1  --tcp --order "SRDLNA" --show-ips'
 
 # netdiscover local network -- when I need a quick list of what is on the network, via ip, including MAC and hw manuf name
 alias netdiscover-192='sudo netdiscover  -P -N -L -r 192.168.1.0/24'
+
+#for when I'm NATted
+alias whatismyip="curl --silent whatismyip.host|grep ipaddress|head -1|sed 's/ //g'|cut -d '>' -f 2|sed 's/<\/p//g'"
