@@ -23,7 +23,7 @@ alias lsdir='ls -d */'
 alias df='df -PHl'
 
 # Display all TCP ports that have a listener
-alias listen_ports="netstat -lntp"
+alias listen_ports="sudo netstat -nlpt"
 
 
 # Always use python3
@@ -54,3 +54,6 @@ alias mtr='sudo mtr --curses -4 --ipinfo 2  --tcp --order "SRDLNA" --show-ips'
 # NOTE: netdiscover is stupid and can only do Class A (/8), Class B(/16), and Class C (/24)
 # since I am using multiple 192 networks at home, I have to specify an entire /16, from command line
 alias netdiscover-192='sudo netdiscover  -P -N -L -r 192.168.0.0/16'
+
+#for when I'm NATted
+alias whatismyip="curl --silent whatismyip.host|grep ipaddress|head -1|sed 's/ //g'|cut -d '>' -f 2|sed 's/<\/p//g'"

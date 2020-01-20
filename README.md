@@ -5,6 +5,7 @@ My favorite settings files, for *nix and OSX
 NOTE: the bashrc files reference a git command completion file. 
 It's available at https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 
+* FavoriteBurpSettings: Use this when creating new BurpSuite projects
 * bash_aliases: Alias topics include software dev, IP/network recon, finding
     large files.
 * bashrc-linuxVPS: bash customizations for my linux server, with a focus on 
