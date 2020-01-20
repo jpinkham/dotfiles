@@ -23,8 +23,7 @@ alias lsdir='ls -d */'
 alias df='df -PHl'
 
 # Display all TCP ports that have a listener
-# TODO  There is likely a better way to do this
-alias listen_ports="netstat -p tcp -a|grep LISTEN"
+alias listen_ports="netstat -lntp"
 
 
 # Always use python3
@@ -46,10 +45,12 @@ alias diff='diff --suppress-common-lines --side-by-side --color'
 alias jsonpp="python -m json.tool $1"
 
 # mtr - My TraceRoute
-#      No annoying GUI IPv4  Show ASN  Use TCP              Show IP and DNS name
-alias mtr='mtr --curses -4 --ipinfo 1  --tcp --order "SRDLNA" --show-ips'
+#               Text mode  IPv4  Country  Use TCP  Columns I want  Show IP and DNS name
+alias mtr='sudo mtr --curses -4 --ipinfo 2  --tcp --order "SRDLNA" --show-ips'
 # NOTE: Set to use tcp so it's less likely the traffic will be de-prioritized, therefore making it more likely any packet loss numbers can be trusted
 
 
 # netdiscover local network -- when I need a quick list of what is on the network, via ip, including MAC and hw manuf name
-alias netdiscover-192='sudo netdiscover  -P -N -L -r 192.168.1.0/24'
+# NOTE: netdiscover is stupid and can only do Class A (/8), Class B(/16), and Class C (/24)
+# since I am using multiple 192 networks at home, I have to specify an entire /16, from command line
+alias netdiscover-192='sudo netdiscover  -P -N -L -r 192.168.0.0/16'
