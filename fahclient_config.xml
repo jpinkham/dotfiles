@@ -1,0 +1,38 @@
+<config>
+  <!-- Client Control -->
+  <open-web-control v='true'/>
+
+  <!-- Folding Core -->
+  <cpu-usage v='70'/>
+  <gpu-usage v='40'/>
+
+  <!-- Folding Slot Configuration -->
+  <cpus v='6'/>
+
+  <!-- HTTP Server -->
+  <allow v='192.168.11.0/24'/>
+
+  <!-- Slot Control -->
+  <power v='MEDIUM'/>
+
+  <!-- User Information -->
+  <passkey v='Xxxxxxx'/>
+  <team v='236327'/>   <!-- Hash Crackers -->
+  <user v='Xxxxxxx'/>
+
+  <!-- Web Server -->
+  <web-allow v='192.168.11.0/24'/>
+
+  <!-- Web Server Sessions -->
+  <session-lifetime v='0'/>
+  <session-timeout v='0'/>
+
+  <!-- Folding Slots -->
+  <slot id='0' type='CPU'/>
+  <slot id='1' type='GPU'/>
+  <slot id='2' type='CPU'/>
+  <slot id='3' type='CPU'/>
+  <slot id='4' type='CPU'/>
+  <slot id='5' type='CPU'/>
+  <slot id='6' type='CPU'/>
+</config>
