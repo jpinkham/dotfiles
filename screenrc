@@ -15,9 +15,10 @@ defscrollback 50000
 startup_message off
 
 # default windows
-screen -t Shell1  1 bash
-screen -t Shell2  2 bash
+screen -t speedtest  1 bash
+screen -t Folding@Home 2 bash
 screen -t Shell3  3 bash
+screen -t syslog 4  sudo tail -f /var/log/syslog 
 
 
 
