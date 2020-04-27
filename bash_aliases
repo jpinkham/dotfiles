@@ -22,8 +22,8 @@ alias lsdir='ls -d */'
 # show local partitions only, use human readable sizes, and hide inodes section
 alias df='df -PHl'
 
-# Display all TCP ports that have a listener
-alias listen_ports="sudo netstat -nlpt"
+# Display all ipv4 TCP  & UDP ports that have a listener
+alias listen_ports="sudo netstat -nlptu4"
 
 
 # Always use python3
