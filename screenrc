@@ -15,10 +15,13 @@ defscrollback 50000
 startup_message off
 
 # default windows
-screen -t speedtest  1 bash
-screen -t Folding@Home 2 bash
-screen -t Shell3  3 bash
-screen -t syslog 4  sudo tail -f /var/log/syslog 
+screen -t Shell1 1 bash
+screen -t BOINC 2 boinctui
+screen -t Shell2 3 bash
+screen -t syslog 4 sudo tail -n5000  -f /var/log/syslog|grep -viE 'x2go|cups|release|unity-gtk|\[sda\]|cron|pia-daemon|php|packagekit|run-user|rngd|locale|accordingly|reloading.'
+screen -t temps 5 watch "sensors -f -A|grep -ivE 'fault|N/A' | sed 's/)//'| sed 's/(//' | grep -Ei 'fan|temp|core|edge'"
+screen -t htop 6 htop
+
 
 
 
