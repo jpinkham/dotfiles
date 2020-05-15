@@ -1,0 +1,25 @@
+session_name: JPDefault
+start_directory: $HOME
+shell_command_before: 
+  - cd
+windows:
+- window_name: Pihole
+  panes:
+  - pihole -t
+- window_name: bash
+  panes:
+    - bash
+- window_name: Calibre
+  panes:
+  - journalctl --unit calibre-server --follow
+- window_name: syslog 
+  panes:
+  - sudo tail -n 2500 --follow=name --retry /var/log/messages|grep -ivE 'rngd|cron|php|locale|accordingly|reloading.|apt-daily|daily apt|cleanup|calibre|slice|session|succeeded|tracker'
+- window_name: combo_syslog 
+  panes:
+  - sudo tail -n 2500 --follow=name --retry /mnt/thecheat_storage/syslog/all_remote_syslogs.log|grep -ivE 'rngd|cron|php|locale|accordingly|reloading.|apt-daily|daily apt|cleanup|calibre|slice|session|succeeded|tracker'
+
+
+
+
+
