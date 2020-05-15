@@ -12,6 +12,9 @@ windows:
 - window_name: Calibre
   panes:
   - journalctl --unit calibre-server --follow
+- window_name: htop
+  panes:
+  - htop
 - window_name: syslog 
   panes:
   - sudo tail -n 2500 --follow=name --retry /var/log/messages|grep -ivE 'rngd|cron|php|locale|accordingly|reloading.|apt-daily|daily apt|cleanup|calibre|slice|session|succeeded|tracker'
