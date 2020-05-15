@@ -1,9 +1,0 @@
-session_name: local_home 
-windows:
-- window_name: local_hosts 
-  layout: tiled
-  shell_command_before: cd $HOME
-  panes:
-    - ssh pi@raspberrypi3.local 
-    - ssh StrongBad.local
-    - ssh TheCheat.local
