@@ -3,7 +3,20 @@
 
 # https://github.com/seebi/tmux-colors-solarized/blob/master/tmuxcolors-256.conf
 set-option -g status-bg colour235 #base02
-set-option -g status-fg colour136 #yellow
+set-option -g status-fg brightblue
+set -g status-interval 10   #10s, i think
+set -g status-justify left # left-align window list
+set -g status-left-length 20
+set -g status-right-length 20
+set -g status-left '#[fg=white][#[fg=green]#H yadda #[fg=white]]'
+set -g status-right '#[fg=white][#[fg=green]%b%d %I:%M %p#[fg=white]]'
+
+# make the current window really obvious with bright blue bg
+setw -g window-status-current-style 'fg=colour1 bg=colour19 bold'
+setw -g window-status-current-format ' #I#[fg=colour249]:#[fg=colour255]#W#[fg=colour249] #F  '
+
+setw -g window-status-style 'fg=colour1 bg=black'
+setw -g window-status-format ' #I:#[fg=colour249]#W#[fg=colour249] #F  '
 
 # set window split
 bind-key v split-window -h
@@ -11,18 +24,9 @@ bind-key b split-window
 
 # pane number display
 set-option -g display-panes-active-colour colour33 #blue
-set-option -g display-panes-colour colour166 #orange
+set-option -g display-panes-colour brightmagenta 
 # clock
 set-window-option -g clock-mode-colour green #green
-
-
-set -g status-interval 10   #10s, i think
-set -g status-justify centre # center align window list
-set -g status-left-length 31
-set -g status-right-length 15 
-set -g status-left '#[fg=green]#H'
-set -g status-right '#[fg=green,bg=default,bright]#(tmux-mem-cpu-load) #[fg=white,bg=default]%l:%M %p#[default]'
-
 
 # I'm coming from 'screen' so let's stick with the prefix char I'm used to
 set-option -g prefix C-a
@@ -46,13 +50,9 @@ set -s escape-time 0
 # client connected to *that window*. Much more reasonable.
 setw -g aggressive-resize on
 
-# Allows us to use C-a a <command> to send commands to a TMUX session inside 
-# another TMUX session
-bind-key a send-prefix
-
 # Activity monitoring
 setw -g monitor-activity on
-set -g visual-activity on
+# too distracting ##set -g visual-activity on
 
 # hjkl pane traversal
 bind h select-pane -L
@@ -67,15 +67,13 @@ bind-key K resize-pane -U 5
 bind-key L resize-pane -D 5
 
 
-
-
 bind-key C command-prompt -p "Name of new window: " "new-window -n '%%'"
 
-# reload config
+# Ctrl + a + r = reload config
 bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
 
 # auto window rename
-set-window-option -g automatic-rename
+# NOPE ##set-window-option -g automatic-rename
 
 # color
 set -g default-terminal "screen-256color"
@@ -83,3 +81,4 @@ set -g default-terminal "screen-256color"
 
 # scrolling with the mouse!
 set -g mouse on
+
