@@ -9,7 +9,7 @@
 export EDITOR=vim
 export VISUAL=$EDITOR
 export PAGER=less
-export HISTIGNORE="&:ls:[bf]g:exit"
+export HISTIGNORE="&:[bf]g:exit"
 export HISTSIZE=50000000
 export HISTFILESIZE=500000000
 export HISTCONTROL=ignoredups
