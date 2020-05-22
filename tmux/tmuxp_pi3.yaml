@@ -12,17 +12,13 @@ windows:
 - window_name: Calibre
   panes:
   - journalctl --unit calibre-server --follow
+- window_name: syslog 
+  panes:
+    - tail_syslog.sh
+    - tail_combo_logs.sh
 - window_name: htop
   panes:
   - htop
-- window_name: syslog 
-  panes:
-  - sudo tail -n 2500 --follow=name --retry /var/log/messages|grep -ivE 'rngd|cron|php|locale|accordingly|reloading.|apt-daily|daily apt|cleanup|calibre|slice|session|succeeded|tracker'
-- window_name: combo_syslog 
-  panes:
-  - sudo tail -n 2500 --follow=name --retry /mnt/thecheat_storage/syslog/all_remote_syslogs.log|grep -ivE 'rngd|cron|php|locale|accordingly|reloading.|apt-daily|daily apt|cleanup|calibre|slice|session|succeeded|tracker'
-
-
 
 
 
