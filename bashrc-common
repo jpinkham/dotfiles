@@ -1,0 +1,108 @@
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# several history-related options taken from https://github.com/greenmoss/home/blob/master/.bashrc
+export EDITOR=vim
+export VISUAL=$EDITOR
+export PAGER=less
+export HISTIGNORE="&:[bf]g:exit"
+export HISTSIZE=50000000
+export HISTFILESIZE=500000000
+export HISTCONTROL=ignoredups
+# ... and ignore same sucessive entries.
+export HISTCONTROL=ignoreboth
+
+#Source: https://stackoverflow.com/questions/38526588/linux-command-history-with-date-and-time
+export HISTTIMEFORMAT="%Y-%m-%d %T "
+
+
+# ensure multi-line commands stay as a single history command
+shopt -s cmdhist
+# do not string together multi-line commands with semi-colons in history
+shopt -s lithist
+shopt -s histverify
+# append bash history
+shopt -s histappend
+
+
+# expand aliases for non-login shell
+shopt -s expand_aliases
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD/$HOME/~}\007"'
+    ;;
+*)
+    ;;
+esac
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+
+if [ "$PS1" ]; then
+  if [ "$BASH" ]; then
+    if [ -f /etc/bash.bashrc ]; then
+        . /etc/bash.bashrc
+    fi
+    if [ "`id -u`" -eq 0 ]; then
+       PS1='\[\033[01;31m\]\h \[\033[01;34m\]\W \$ \[\033[00m\]'
+    else
+       PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w \$ \[\033[00m\]'
+    fi
+  fi
+fi
+
+
+alias ls="ls --color -Gph"
+
+
+# Git command completion
+source $HOME/git-completion.bash
+# Latest version available at https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+
+# Prompt shows state of Git, when in repository directories
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+if [ "$PS1" ]; then
+  if [ "$BASH" ]; then
+    if [ -f /etc/bash.bashrc ]; then
+        . /etc/bash.bashrc
+    fi
+    if [ "`id -u`" -eq 0 ]; then
+       PS1='\[\033[01;31m\]\h \[\033[01;34m\]\W \$ \[\033[00m\]'
+    else
+       PS1='$(__git_ps1 "(%s) ")\[\033[01;32m\]\u@\h \[\033[01;34m\]\w \$ \[\033[00m\]'
+    fi
+  fi
+fi
+
+
