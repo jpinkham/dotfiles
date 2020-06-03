@@ -9,7 +9,7 @@ windows:
     - bash
 - window_name: bash
   panes:
-    - bash
+    - eval `ssh-agent -s` && ssh-add ~/.ssh/id_github_rsa
 - window_name: htop
   panes:
   - htop
