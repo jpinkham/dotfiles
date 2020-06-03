@@ -7,7 +7,7 @@ alias find_large_files='find . -size +500M 2>/dev/null -exec ls -lh {} \;'
 
 
 # my most common ls commands
-alias ls="ls -Gh"  #colored output, human-readable file sizes
+alias ls="ls -Ghp"  #colored output, human-readable file sizes, append "/" to end of directory names
 alias ll='ls -al'
 # sort by time
 alias lt='ls -lt'
