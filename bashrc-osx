@@ -7,9 +7,5 @@ else
     echo "WARN! bash-common was not found!";
 fi
 
-# from http://apple.stackexchange.com/questions/33677/how-can-i-configure-mac-terminal-to-have-color-ls-output
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-alias ls="ls -Gph"
 
-
+export PATH=$HOME/Library/Python/2.7/bin:$PATH

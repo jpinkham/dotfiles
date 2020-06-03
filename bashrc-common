@@ -81,9 +81,6 @@ if [ "$PS1" ]; then
 fi
 
 
-alias ls="ls --color -Gph"
-
-
 # Git command completion
 source $HOME/git-completion.bash
 # Latest version available at https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
@@ -105,4 +102,7 @@ if [ "$PS1" ]; then
   fi
 fi
 
-
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+export LESS=RXmN
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin/:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
