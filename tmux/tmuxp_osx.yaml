@@ -9,15 +9,13 @@ windows:
     - bash
 - window_name: bash
   panes:
-    - bash
+    - eval `ssh-agent -s` && ssh-add ~/.ssh/id_github_rsa
 - window_name: htop
   panes:
   - htop
 - window_name: syslog 
   panes:
-  - tail -F /var/log/system.log|grep -ivE 'rngd|cron|php|locale|accordingly|reloading.|cleanup|calibre|slice|session|succeeded|tracker'
-
-
+  - tail -n 250 -F /var/log/system.log wifi.log install.log |grep -ivE 'rngd|cron|php|locale|accordingly|reloading.|cleanup|calibre|slice|session|succeeded|tracker|ituneshelper|safari|firefox|asl sender|imfoundation'
 
 
 
