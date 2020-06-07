@@ -57,3 +57,6 @@ alias netdiscover-192='sudo netdiscover  -P -N -L -r 192.168.0.0/16'
 
 #for when I'm NATted
 alias whatismyip="curl --silent whatismyip.host|grep ipaddress|head -1|sed 's/ //g'|cut -d '>' -f 2|sed 's/<\/p//g'"
+
+# because I'm only using lynx for quick tests, I don't care about the damn cookies, just accept and don't prompt me
+alias lynx="lynx -accept_all_cookies"
