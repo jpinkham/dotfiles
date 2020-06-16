@@ -1,0 +1,24 @@
+# Global options first
+Host *
+  ForwardAgent yes
+  ForwardX11 yes
+  PreferredAuthentications publickey, keyboard-interactive, password
+  StrictHostKeyChecking no  # Don't bug me the first time I connect
+  LogLevel quiet
+  UseRoaming no  # Qualys Security Advisory - Roaming through the OpenSSH client: CVE-2016-0777 and CVE-2016-0778
+  AddressFamily inet  # IPv4 only
+  PermitTunnel yes
+  Protocol 2
+
+host github
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_github
+  
+  
+host dietpihole
+  User dietpi
+  
+  
+host raspberrypi3
+  User pi
