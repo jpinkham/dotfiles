@@ -3,10 +3,6 @@ start_directory: $HOME
 shell_command_before: 
   - cd
 windows:
-- window_name: Pihole
-  panes:
-  - pihole -t
-	- tail_pihole_dhcp.sh
 - window_name: bash
   panes:
     - bash
