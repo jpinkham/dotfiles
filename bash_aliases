@@ -57,3 +57,6 @@ alias netdiscover-192='sudo netdiscover  -P -N -L -r 192.168.0.0/16'
 
 #for when I'm NATted
 alias whatismyip="curl --silent whatismyip.host|grep ipaddress|head -1|sed 's/ //g'|cut -d '>' -f 2|sed 's/<\/p//g'"
+
+#because there are waaaay to many types of mounts for temp fs, snaps, etc
+alias mounts="mount|grep /dev/sd"
