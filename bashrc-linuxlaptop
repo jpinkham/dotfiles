@@ -71,11 +71,6 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 
-#add my bin dir to my path 
-export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin/:/usr/local/sbin:$PATH
-
-
-
 if [ "$PS1" ]; then
   if [ "$BASH" ]; then
     if [ -f /etc/bash.bashrc ]; then
@@ -115,3 +110,4 @@ if [ "$PS1" ]; then
 fi
 
 
+#export PATH=$HOME/bin:$HOME/.local/bin:
