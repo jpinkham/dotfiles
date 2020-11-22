@@ -1,0 +1,28 @@
+session_name: JPDefault
+start_directory: $HOME
+shell_command_before: 
+  - cd
+  # I have no idea why this isn't ^H, but this is what TheCheat wants
+  - stty erase ^? 
+windows:
+- window_name: bash
+  panes:
+    - bash
+- window_name: bash
+  panes:
+    - bash
+- window_name: htop
+  panes:
+  - htop
+- window_name: syslog 
+  panes:
+  - /home/jpinkham/dev/rando_scripts/tail_syslog.sh 
+- window_name: combo_syslog 
+  panes:
+  - sudo tail -n 50 --follow=name --retry /usr/share/extra_storage/syslog/all_remote_syslogs.log|grep -ivE 'rngd|cron|php|locale|accordingly|reloading.|apt-daily|daily apt|cleanup|calibre|slice|session|succeeded|tracker|sudo'
+
+
+
+
+
+
