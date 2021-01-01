@@ -8,7 +8,12 @@ else
 fi
 
 
-export PATH=$HOME/Library/Python/2.7/bin:$PATH
+export PATH=$HOME/bin:$PATH
+
+alias top="top -stats pid,command,cpu,state,user,mem,ppid -F -n 20"  #BSD top works different than Linux version
+
+# Installed from https://golang.org/dl/
+alias go="/usr/local/go/bin/go"
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
