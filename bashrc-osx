@@ -8,7 +8,8 @@ else
 fi
 
 
-export PATH=$HOME/bin:$PATH
+# my own scripts : python apps i installed : everything else already in $PATH
+export PATH=$HOME/bin:~/Library/Python/3.8/bin/:$PATH
 
 alias top="top -stats pid,command,cpu,state,user,mem,ppid -F -n 20"  #BSD top works different than Linux version
 
