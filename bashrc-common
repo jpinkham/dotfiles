@@ -106,3 +106,7 @@ export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export LESS=RXmN
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin/:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+
+
+# Dockerized tools I use, so I don't have to manually install them and deal with dependency mgmt
+source $HOME/dev/dotfiles/bash_aliases_dockerized
