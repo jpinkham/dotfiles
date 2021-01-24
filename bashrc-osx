@@ -16,5 +16,12 @@ alias top="top -stats pid,command,cpu,state,user,mem,ppid -F -n 20"  #BSD top wo
 # Installed from https://golang.org/dl/
 alias go="/usr/local/go/bin/go"
 
+# I don't want to use HomeBrew to get this running, so just use Docker
+alias binwalk="docker run -it knowl3dge/binwalk"
+
+
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+# Silences OS 10.15 (Catalina) from warning that bash is no longer the default shell, that it's zsh
+# Source: https://scriptingosx.com/2019/06/moving-to-zsh/
+export BASH_SILENCE_DEPRECATION_WARNING=1
