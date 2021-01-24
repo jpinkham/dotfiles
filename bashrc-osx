@@ -10,8 +10,8 @@ fi
 source $HOME/dev/dotfiles/bash_aliases_dockerized
 
 
-# my own scripts : python apps i installed : everything else already in $PATH
-export PATH=$HOME/bin:~/Library/Python/3.8/bin/:$PATH
+# my own scripts :           Homebrew  apps         : python apps i installed : everything else already in $PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/Library/Python/3.8/bin/:$PATH
 
 alias top="top -stats pid,command,cpu,state,user,mem,ppid -F -n 20"  #BSD top works different than Linux version
 
@@ -23,3 +23,7 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 # Silences OS 10.15 (Catalina) from warning that bash is no longer the default shell, that it's zsh
 # Source: https://scriptingosx.com/2019/06/moving-to-zsh/
 export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# suggested by homebrew, after installing openjdk on 1/24/2021
+export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+
