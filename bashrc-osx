@@ -7,11 +7,18 @@ else
     echo "WARN! bash-common was not found!";
 fi
 
-source $HOME/dev/dotfiles/bash_aliases_dockerized
+#####source $HOME/dev/dotfiles/bash_aliases_dockerized
 
+
+# apps/libs installed by homebrew as "kegs", which are not symlinked to /usr/local, to avoid collision
+#    with pre-existing macOS installations.  I want to use the newer versions that are kegs, so their path
+#    will be pre-pended
+
+JP_KEG_PATH="/usr/local/opt/sqlite/bin:/usr/local/opt/python@3.8/bin:/usr/local/opt/openssl@1.1/bin"
 
 # my own scripts :           Homebrew  apps         : python apps i installed : everything else already in $PATH
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:~/Library/Python/3.8/bin/:$PATH
+export PATH=$HOME/bin:$JP_KEG_PATH:/usr/local/bin:/usr/local/sbin:~/Library/Python/3.8/bin/:$PATH
+echo "PATH is now set to >$PATH<"
 
 alias top="top -stats pid,command,cpu,state,user,mem,ppid -F -n 20"  #BSD top works different than Linux version
 
@@ -26,4 +33,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # suggested by homebrew, after installing openjdk on 1/24/2021
 export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+
+# homebrew bash completions (installed via "homebrew bash-completion")
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
