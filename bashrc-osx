@@ -7,9 +7,6 @@ else
     echo "WARN! bash-common was not found!";
 fi
 
-#####source $HOME/dev/dotfiles/bash_aliases_dockerized
-
-
 # apps/libs installed by homebrew as "kegs", which are not symlinked to /usr/local, to avoid collision
 #    with pre-existing macOS installations.  I want to use the newer versions that are kegs, so their path
 #    will be pre-pended
