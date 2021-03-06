@@ -1,0 +1,11 @@
+# Contains aliases for Dockerized versions of tools I use
+# 
+# WARN! WARN!  For apps that will accept input from STDOUT (piping), 
+# you MUST use only "-i" in order to avoid "not a TTY" error
+
+alias binwalk="docker run -it knowl3dge/binwalk"
+alias jq="docker run --rm -i stedolan/jq -C"
+alias lynx="docker run --rm -it jessfraz/lynx"
+alias nikto="docker run --rm sullo/nikto"
+alias nmap="docker run --rm -it --net host jessfraz/nmap"
+alias testssl="docker run --rm -ti  drwetter/testssl.sh"

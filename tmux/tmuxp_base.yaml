@@ -1,8 +1,9 @@
 session_name: JPDefault
 start_directory: $HOME
-shell_command_before: 
+shell_command_before:
   - cd
   - stty erase ^H
+  - test $OSTYPE = "darwin19" && stty erase ^?
 windows:
 - window_name: bash
   panes:
@@ -13,9 +14,9 @@ windows:
 - window_name: htop
   panes:
   - htop
-- window_name: syslog 
+- window_name: syslog
   panes:
-  - journalctl -xe --follow|grep -ivE 'rngd|cron|php|locale|accordingly|reloading.|apt-daily|daily apt|cleanup|calibre|slice|session|succeeded|tracker'
+  - ~/dev/rando_scripts/tail_syslog.sh
 
 
 

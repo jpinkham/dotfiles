@@ -7,7 +7,7 @@ alias find_large_files='find . -size +500M 2>/dev/null -exec ls -lh {} \;'
 
 
 # my most common ls commands
-alias ls="ls -Gh"  #colored output, human-readable file sizes
+alias ls="ls -Ghp"  #colored output, human-readable file sizes, append "/" to end of directory names
 alias ll='ls -al'
 # sort by time
 alias lt='ls -lt'
@@ -40,6 +40,9 @@ alias arin_email='whois -h whois.arin.net + e @$1'
 
 # nicer diff output; easier to make sense of
 alias diff='diff --suppress-common-lines --side-by-side --color'
+# Mac nor Linux supports color option (booooo)
+test $MACHTYPE = "x86_64-apple-darwin19" && alias diff='diff --suppress-common-lines --side-by-side'
+test $MACHTYPE = "x86_64-redhat-linux-gnu" && alias diff='diff --suppress-common-lines --side-by-side'
 
 # Pretty Print json -- requires package "pretty-json" 
 alias jsonpp="python -m json.tool $1"
@@ -58,5 +61,13 @@ alias netdiscover-192='sudo netdiscover  -P -N -L -r 192.168.0.0/16'
 #for when I'm NATted
 alias whatismyip="curl --silent whatismyip.host|grep ipaddress|head -1|sed 's/ //g'|cut -d '>' -f 2|sed 's/<\/p//g'"
 
-#because there are waaaay to many types of mounts for temp fs, snaps, etc
-alias mounts="mount|grep /dev/sd"
+# because I'm only using lynx for quick tests, I don't care about the damn cookies, just accept and don't prompt me
+alias lynx="lynx -accept_all_cookies"
+
+# Because I have less customized to print line numbers, this messes with the 'history' command. So force history to use 'more' as a pager instead
+alias history="PAGER=more history"
+
+
+alias testssl='cd $HOME/dev/openstack_stuff/testssl.sh-3.1dev; ./testssl.sh --quiet --protocols --server-preference --nodns min --server-defaults --vulnerable --ids-friendly --headers $1'
+
+alias nmap_ssl='nmap -p 443 --script "ssl-c*" --script "ssl-d*" --script ssl-enum-ciphers --script ssl-known-key'
