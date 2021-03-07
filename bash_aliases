@@ -40,6 +40,9 @@ alias arin_email='whois -h whois.arin.net + e @$1'
 
 # nicer diff output; easier to make sense of
 alias diff='diff --suppress-common-lines --side-by-side --color'
+# Mac nor Linux supports color option (booooo)
+test $MACHTYPE = "x86_64-apple-darwin19" && alias diff='diff --suppress-common-lines --side-by-side'
+test $MACHTYPE = "x86_64-redhat-linux-gnu" && alias diff='diff --suppress-common-lines --side-by-side'
 
 # Pretty Print json -- requires package "pretty-json" 
 alias jsonpp="python -m json.tool $1"
@@ -60,3 +63,11 @@ alias whatismyip="curl --silent whatismyip.host|grep ipaddress|head -1|sed 's/ /
 
 # because I'm only using lynx for quick tests, I don't care about the damn cookies, just accept and don't prompt me
 alias lynx="lynx -accept_all_cookies"
+
+# Because I have less customized to print line numbers, this messes with the 'history' command. So force history to use 'more' as a pager instead
+alias history="PAGER=more history"
+
+
+alias testssl='cd $HOME/dev/openstack_stuff/testssl.sh-3.1dev; ./testssl.sh --quiet --protocols --server-preference --nodns min --server-defaults --vulnerable --ids-friendly --headers $1'
+
+alias nmap_ssl='nmap -p 443 --script "ssl-c*" --script "ssl-d*" --script ssl-enum-ciphers --script ssl-known-key'

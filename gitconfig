@@ -1,3 +1,5 @@
 [user]
 name = Jennifer Pinkham
 email = jennifer.pinkham@owasp.org
+[pull]
+	rebase = false
