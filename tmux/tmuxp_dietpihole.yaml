@@ -1,0 +1,23 @@
+session_name: JPDefault
+start_directory: $HOME
+shell_command_before: 
+  - cd
+windows:
+- window_name: pihole 
+  panes:
+    - pihole -t 
+- window_name: bash
+  panes:
+    - bash
+- window_name: syslog 
+  panes:
+    - tail_syslog.sh
+- window_name: combo-syslog 
+  panes:
+    - tail_combo_logs.sh
+- window_name: htop
+  panes:
+  - htop
+
+
+

@@ -104,5 +104,18 @@ fi
 
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-export LESS=RXmN
+
+export LESS="RXmNE"
+# R=raw ctrl chars, to preserve color chars X=Leave contents on screen when exit  m=Detailed prompt;incl file position   N=line numbers  E=automatically quit at first EndofFile
+
+
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin/:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin
+
+
+# Dockerized tools I use, so I don't have to manually install them and deal with dependency mgmt
+source $HOME/dev/dotfiles/bash_aliases_dockerized
+
+
+stty erase ^H
+# On Mac, it sends ^? from Delete key (no Backspace key)
+test $MACHTYPE = "x86_64-apple-darwin19" && stty erase ^?
