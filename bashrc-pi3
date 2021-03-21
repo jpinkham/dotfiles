@@ -1,0 +1,11 @@
+# Import what's common across all environments and operating systems
+if [ -f "$HOME/dev/dotfiles/bashrc-common" ]; then
+    source $HOME/dev/dotfiles/bashrc-common;
+    echo "Common bashrc file loaded successfully!";
+    echo "Loading customizations for this environment";
+else
+    echo "WARN! bash-common was not found!";
+fi
+
+################ Start unique settings
+
