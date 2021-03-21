@@ -71,3 +71,7 @@ alias history="PAGER=more history"
 alias testssl='cd $HOME/dev/openstack_stuff/testssl.sh-3.1dev; ./testssl.sh --quiet --protocols --server-preference --nodns min --server-defaults --vulnerable --ids-friendly --headers $1'
 
 alias nmap_ssl='nmap -p 443 --script "ssl-c*" --script "ssl-d*" --script ssl-enum-ciphers --script ssl-known-key'
+
+# show environment variables, aiming to get all the ones sorted to the top, and stop when reach any that start with underscore
+alias env_vars='set|head -100|grep -vE "^_"'
+
