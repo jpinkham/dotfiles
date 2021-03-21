@@ -58,8 +58,8 @@ alias mtr='sudo mtr --curses -4 --ipinfo 2  --tcp --order "SRDLNA" --show-ips'
 # since I am using multiple 192 networks at home, I have to specify an entire /16, from command line
 alias netdiscover-192='sudo netdiscover  -P -N -L -r 192.168.0.0/16'
 
-#for when I'm NATted
-alias whatismyip="curl --silent whatismyip.host|grep ipaddress|head -1|sed 's/ //g'|cut -d '>' -f 2|sed 's/<\/p//g'"
+#for when I'm NATted/VPN'd
+alias whatismyip="curl --silent https://api.ipify.org && echo"
 
 # because I'm only using lynx for quick tests, I don't care about the damn cookies, just accept and don't prompt me
 alias lynx="lynx -accept_all_cookies"
