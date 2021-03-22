@@ -2,13 +2,17 @@ session_name: JPDefault
 start_directory: $HOME
 shell_command_before: 
   - stty erase ^H 
+
 windows:
+- window_name: GH dev 
+  panes:
+  - eval $(ssh-agent) && ssh-add ~/.ssh/github_rsa ~/.ssh/id_rsa && ssh-add -l
 - window_name: bash
   panes:
-    - bash
+    - 
 - window_name: bash
   panes:
-    - bash
+    - 
 - window_name: syslog 
   panes:
     - $HOME/bin/tail_syslog.sh
