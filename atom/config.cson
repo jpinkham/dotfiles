@@ -32,3 +32,5 @@
     userId: "4892082f-91cc-4a9c-842e-7ecb4ea7a9f6"
   "one-dark-ui":
     fontSize: 14
+  welcome:
+    showOnStartup: false
