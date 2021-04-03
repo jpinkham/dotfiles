@@ -80,7 +80,6 @@ if [ "$PS1" ]; then
   fi
 fi
 
-
 # Git command completion
 source $HOME/git-completion.bash
 # Latest version available at https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
@@ -119,3 +118,9 @@ source $HOME/dev/dotfiles/bash_aliases_dockerized
 stty erase ^H
 # On Mac, it sends ^? from Delete key (no Backspace key)
 test $MACHTYPE = "x86_64-apple-darwin19" && stty erase ^?
+
+
+# if it exists, activate custom python 3 venv
+if [ -d $HOME/my_py3_devenv ]; then
+	source $HOME/my_py3_devenv/bin/activate;
+fi
