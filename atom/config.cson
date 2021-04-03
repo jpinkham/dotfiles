@@ -1,0 +1,34 @@
+"*":
+  "atom-material-ui":
+    colors:
+      abaseColor: "#5c8dff"
+  "autocomplete-plus":
+    confirmCompletion: "tab"
+    enableAutoActivation: false
+    enableAutoConfirmSingleSuggestion: false
+    enableBuiltinProvider: false
+    fileBlacklist: [
+      "*.md"
+      "*.txt"
+    ]
+    includeCompletionsFromAllBuffers: false
+    minimumWordLength: 5
+    suggestionListFollows: "Cursor"
+  core:
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "atom-dark-syntax"
+    ]
+  editor:
+    defaultFontSize: 18
+    fontFamily: "Fira Mono"
+    fontSize: 18
+    softWrapAtPreferredLineLength: true
+    softWrapHangingIndent: 2
+    tabLength: 4
+    tabType: "soft"
+  "exception-reporting":
+    userId: "4892082f-91cc-4a9c-842e-7ecb4ea7a9f6"
+  "one-dark-ui":
+    fontSize: 14
