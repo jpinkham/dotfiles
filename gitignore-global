@@ -57,3 +57,56 @@ MYMETA.json
 Icon?
 ehthumbs.db
 Thumbs.db
+
+
+
+##### Source: https://github.com/mikepqr/dotfiles/blob/main/git/.config/git/ignore
+# Reference: https://mike.place/2020/global-gitignore/
+
+
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+build/
+
+
+# Vim
+######################
+.*.swp
+tags
+Session.vim
+
+# Python
+######################
+.ipynb_checkpoints
+__pycache__
+*.egg-info
+*.pkl
+*.npy
+.cache
+.hypothesis
+Scratch.ipynb
+Untitled*.ipynb
+.mypy_cache
+
+# Environments
+######################
+.env
+.envrc
+.direnv
+venv
+env-local
+zappa_settings.json
+
+# JavaScript
+######################
+node_modules/
+dist/
+.eslintcache
+
