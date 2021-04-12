@@ -1,8 +1,8 @@
 # Import what's common across all environments and operating systems
 if [ -f "$HOME/dev/dotfiles/bashrc-common" ]; then
     source $HOME/dev/dotfiles/bashrc-common;
-    echo "Common bashrc file loaded successfully!";
-    echo "Loading customizations for this environment";
+#    echo "Common bashrc file loaded successfully!";
+#    echo "Loading customizations for this environment";
 else
     echo "WARN! bash-common was not found!";
 fi
@@ -11,11 +11,11 @@ fi
 #    with pre-existing macOS installations.  I want to use the newer versions that are kegs, so their path
 #    will be pre-pended
 
-JP_KEG_PATH="/usr/local/opt/sqlite/bin:/usr/local/opt/python@3.8/bin:/usr/local/opt/openssl@1.1/bin"
+JP_KEG_PATH="/usr/local/opt/sqlite/bin:/usr/local/opt/python@3.9/bin:/usr/local/opt/openssl@1.1/bin"
 
 # my own scripts :           Homebrew  apps         : python apps i installed : everything else already in $PATH
 export PATH=$HOME/bin:$JP_KEG_PATH:/usr/local/bin:/usr/local/sbin:~/Library/Python/3.8/bin/:$PATH
-echo "PATH is now set to >$PATH<"
+#echo "PATH is now set to >$PATH<"
 
 alias top="top -stats pid,command,cpu,state,user,mem,ppid -F -n 20"  #BSD top works different than Linux version
 
@@ -34,3 +34,4 @@ export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 # homebrew bash completions (installed via "homebrew bash-completion")
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
+##export PYTHONPATH="/Library/Python/3.8/site-packages/:
