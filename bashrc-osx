@@ -1,3 +1,8 @@
+# If not running interactively, don't do anything
+ [ -z "$PS1" ] && return
+
+
+
 # Import what's common across all environments and operating systems
 if [ -f "$HOME/dev/dotfiles/bashrc-common" ]; then
     source $HOME/dev/dotfiles/bashrc-common;
