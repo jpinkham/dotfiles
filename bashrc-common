@@ -112,7 +112,8 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin/:/usr/local/sbin:/usr/bin:
 
 
 # Dockerized tools I use, so I don't have to manually install them and deal with dependency mgmt
-source $HOME/dev/dotfiles/bash_aliases_dockerized
+# but first, check if Docker is installed
+[[ -f /usr/bin/docker ]] && source $HOME/dev/dotfiles/bash_aliases_dockerized
 
 
 stty erase ^H
