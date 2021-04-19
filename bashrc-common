@@ -122,6 +122,30 @@ test $MACHTYPE = "x86_64-apple-darwin19" && stty erase ^?
 
 
 # if it exists, activate custom python 3 venv
-if [ -d $HOME/my_py3_env ]; then
-	source $HOME/my_py3_env/bin/activate;
+if [ -d $HOME/Dropbox/my_py3_env ]; then
+	source $HOME/Dropbox/my_py3_env/bin/activate;
 fi
+
+
+
+
+# Use fancy prompt!
+GOPATH=$HOME/go/bin/
+
+function _update_ps1() {
+    PS1="$($GOPATH/powerline-go -error $? \
+						-jobs $(jobs -p | wc -l)\
+						-newline\
+						-git-mode simple\
+						-modules time,git,venv,user,host,cwd,ssh\
+						-cwd-mode plain\
+						-truncate-segment-width 10\
+						-git-disable-stats untracked
+					)"
+#-theme lowcontrast)"
+}
+
+if [ "$TERM" != "linux" ] && [ -f "$GOPATH/powerline-go" ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
