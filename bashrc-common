@@ -137,7 +137,7 @@ function _update_ps1() {
 						-jobs $(jobs -p | wc -l)\
 						-newline\
 						-git-mode simple\
-						-modules time,git,venv,user,host,cwd,ssh\
+						-modules time,git,venv,user,host,cwd\
 						-cwd-mode plain\
 						-truncate-segment-width 10\
 						-git-disable-stats untracked
