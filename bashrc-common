@@ -112,7 +112,8 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin/:/usr/local/sbin:/usr/bin:
 
 
 # Dockerized tools I use, so I don't have to manually install them and deal with dependency mgmt
-source $HOME/dev/dotfiles/bash_aliases_dockerized
+# but first, check if Docker is installed
+[[ -f /usr/bin/docker ]] && source $HOME/dev/dotfiles/bash_aliases_dockerized
 
 
 stty erase ^H
@@ -121,6 +122,30 @@ test $MACHTYPE = "x86_64-apple-darwin19" && stty erase ^?
 
 
 # if it exists, activate custom python 3 venv
-if [ -d $HOME/my_py3_env ]; then
-	source $HOME/my_py3_env/bin/activate;
+if [ -d $HOME/Dropbox/my_py3_env ]; then
+	source $HOME/Dropbox/my_py3_env/bin/activate;
 fi
+
+
+
+
+# Use fancy prompt!
+GOPATH=$HOME/go/bin/
+
+function _update_ps1() {
+    PS1="$($GOPATH/powerline-go -error $? \
+						-jobs $(jobs -p | wc -l)\
+						-newline\
+						-git-mode simple\
+						-modules time,git,venv,user,host,cwd,ssh\
+						-cwd-mode plain\
+						-truncate-segment-width 10\
+						-git-disable-stats untracked
+					)"
+#-theme lowcontrast)"
+}
+
+if [ "$TERM" != "linux" ] && [ -f "$GOPATH/powerline-go" ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
