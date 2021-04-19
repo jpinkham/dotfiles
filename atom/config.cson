@@ -15,11 +15,16 @@
     minimumWordLength: 5
     suggestionListFollows: "Cursor"
   core:
+    audioBeep: false
+    disabledPackages: [
+      "intentions"
+    ]
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
       "atom-dark-syntax"
     ]
+    warnOnLargeFileLimit: 25
   editor:
     defaultFontSize: 18
     fontFamily: "Fira Mono"
@@ -30,6 +35,48 @@
     tabType: "soft"
   "exception-reporting":
     userId: "4892082f-91cc-4a9c-842e-7ecb4ea7a9f6"
+  "ide-python":
+    pylsPlugins:
+      flake8:
+        ignore: [
+          "E121"
+          "E123"
+          "E126"
+          "E226"
+          "E24"
+          "E704"
+          "W503"
+          "W504"
+          "E402"
+          "E265"
+          "E501"
+        ]
+        maxLineLength: 120
+      pycodestyle:
+        ignore: [
+          "E121"
+          "E123"
+          "E126"
+          "E226"
+          "E24"
+          "E704"
+          "W503"
+          "W504"
+          "E402"
+          "E265"
+          "E501"
+        ]
+        maxLineLength: 120
+      pyls_mypy:
+        enabled: false
+        live_mode: false
+  "linter-shellcheck":
+    userParameters: "--check-sourced --external-sources --color=always --shell=bash"
+  "linter-ui-default":
+    panelHeight: 98
+    showPanel: true
+  "markdown-preview":
+    useGitHubStyle: true
   "one-dark-ui":
     fontSize: 14
   welcome:
