@@ -132,12 +132,15 @@ fi
 # Use fancy prompt!
 GOPATH=$HOME/go/bin/
 
+# Trick powerline-go to show current tmux pane
+export SHENV_VERSION=$TMUX_PANE
+
 function _update_ps1() {
     PS1="$($GOPATH/powerline-go -error $? \
 						-jobs $(jobs -p | wc -l)\
 						-newline\
 						-git-mode simple\
-						-modules time,git,venv,user,host,cwd\
+						-modules time,git,venv,user,host,cwd,shenv\
 						-cwd-mode plain\
 						-truncate-segment-width 10\
 						-git-disable-stats untracked
