@@ -1,7 +1,5 @@
 session_name: JPDefault
 start_directory: $HOME
-shell_command_before: 
-  - stty erase ^H 
 
 windows:
 - window_name: GH dev 
