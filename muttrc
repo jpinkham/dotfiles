@@ -6,6 +6,7 @@ set pager_index_lines=5
 set pager_stop
 
 set tmpdir="/tmp"
+set editor="nano"
 
 #
 # Binding
@@ -86,9 +87,8 @@ set	tilde					# pad empty lines like vi
 
 set	date_format="%Y.%m.%d %H:%M:%S %z"	# dates ISO-8601 format
 set	folder=/home/jpinkham/Maildir				# home of mail folders
-#set	folder=~/evolution/local		# home of mail folders
 unset	help					# no ui spam
-set	ispell="/usr/local/bin/ispell"
+set	ispell="aspell"
 unset	quit=ask-yes				# don't simply die on 'q'
 
 set	ascii_chars				# ascii chars in threadmarks

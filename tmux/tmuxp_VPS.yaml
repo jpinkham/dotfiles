@@ -19,8 +19,9 @@ windows:
 - window_name: htop 
   panes:
     - htop 
-
-
+- window_name: mutt email
+  panes:
+    -  mutt -F ~/.muttrc -f ~/Maildir
 
 
 

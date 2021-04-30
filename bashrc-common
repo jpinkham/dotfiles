@@ -146,6 +146,7 @@ function _update_ps1() {
 }
 
 if [ "$TERM" != "linux" ] && [ -f "$GOPATH/powerline-go" ]; then
+		echo "About to use powerline-go!"
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
