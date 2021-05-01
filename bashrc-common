@@ -131,6 +131,7 @@ fi
 
 # Use fancy prompt!
 GOPATH=$HOME/go/bin/
+GOPATH=$HOME/dev/jp-powerline-go
 
 function _update_ps1() {
     PS1="$($GOPATH/powerline-go -error $? \
