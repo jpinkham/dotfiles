@@ -16,7 +16,7 @@ fi
 #    with pre-existing macOS installations.  I want to use the newer versions that are kegs, so their path
 #    will be pre-pended
 
-JP_KEG_PATH="/usr/local/opt/sqlite/bin:/usr/local/opt/python@3.9/bin:/usr/local/opt/openssl@1.1/bin"
+JP_KEG_PATH="/usr/local/opt/sqlite/bin:/usr/local/opt/python@3.9/bin:/usr/local/opt/openssl@1.1/bin:/usr/local/lib/ruby/gems/3.0.0/bin:/usr/local/opt/ruby/bin"
 
 # my own scripts :           Homebrew  apps         : python apps i installed : everything else already in $PATH
 export PATH=$HOME/bin:$JP_KEG_PATH:/usr/local/bin:/usr/local/sbin:~/Library/Python/3.8/bin/:$PATH
@@ -40,3 +40,11 @@ export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 ##export PYTHONPATH="/Library/Python/3.8/site-packages/:
+#
+#For compilers to find ruby you may need to set:
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include $CPPFLAGS"
+
+#For pkg-config to find ruby you may need to set:
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+#
