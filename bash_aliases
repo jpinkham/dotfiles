@@ -31,21 +31,21 @@ alias python=python3
 alias pip=pip3
 
 # displays the registered owners of the netblock containing specified IP address
-alias arin="whois -h whois.arin.net $1"
-alias ripe="whois -h whois.ripe.net $1"
-alias apnic="whois -h whois.apnic.net $1"
+alias arin="whois -h whois.arin.net"
+alias ripe="whois -h whois.ripe.net"
+alias apnic="whois -h whois.apnic.net"
 
 # ARIN: Find all contact emails for specified domain
-alias arin_email='whois -h whois.arin.net + e @$1'
+alias arin_email='whois -h whois.arin.net + e @'
 
 # nicer diff output; easier to make sense of
 alias diff='diff --suppress-common-lines --side-by-side --color'
-# Mac nor Linux supports color option (booooo)
+# Neither Mac nor Linux supports color option (booooo)
 test $MACHTYPE = "x86_64-apple-darwin19" && alias diff='diff --suppress-common-lines --side-by-side'
 test $MACHTYPE = "x86_64-redhat-linux-gnu" && alias diff='diff --suppress-common-lines --side-by-side'
 
-# Pretty Print json -- requires package "pretty-json" 
-alias jsonpp="python -m json.tool $1"
+# Pretty Print json -- requires package "pretty-json"
+alias jsonpp="python -m json.tool"
 
 # mtr - My TraceRoute
 #               Text mode  IPv4  Country  Use TCP  Columns I want  Show IP and DNS name
@@ -58,7 +58,7 @@ alias mtr='sudo mtr --curses -4 --ipinfo 2  --tcp --order "SRDLNA" --show-ips'
 # since I am using multiple 192 networks at home, I have to specify an entire /16, from command line
 alias netdiscover-192='sudo netdiscover  -P -N -L -r 192.168.0.0/16'
 
-#for when I'm NATted/VPN'd
+#for when I'm NATted/VPN'd. Need final "echo" to get a newline
 alias whatismyip="curl --silent https://api.ipify.org && echo"
 
 # because I'm only using lynx for quick tests, I don't care about the damn cookies, just accept and don't prompt me
@@ -68,10 +68,12 @@ alias lynx="lynx -accept_all_cookies"
 alias history="PAGER=more history"
 
 
-alias testssl='cd $HOME/dev/openstack_stuff/testssl.sh-3.1dev; ./testssl.sh --quiet --protocols --server-preference --nodns min --server-defaults --vulnerable --ids-friendly --headers $1'
+alias testssl='cd $HOME/dev/openstack_stuff/testssl.sh-3.1dev; ./testssl.sh --quiet --protocols --server-preference --nodns min --server-defaults --vulnerable --ids-friendly --headers '
 
 alias nmap_ssl='nmap -p 443 --script "ssl-c*" --script "ssl-d*" --script ssl-enum-ciphers --script ssl-known-key'
 
 # show environment variables, aiming to get all the ones sorted to the top, and stop when reach any that start with underscore
 alias env_vars='set|head -100|grep -vE "^_"'
 
+# when you want paging + syntax highlighting, make vim behave like "less"
+alias vless='vim -u /usr/share/vim/vim81/macros/less.vim'
