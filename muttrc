@@ -1,0 +1,135 @@
+#
+# Setting
+#
+set pager_context=4
+set pager_index_lines=5
+set pager_stop
+
+set tmpdir="/tmp"
+set editor="nano"
+
+#
+# Binding
+#
+bind  pager <backspace> previous-page
+bind  pager -           previous-line
+bind  pager \eOm        previous-line
+bind  pager +           next-line
+bind  pager \eOk        next-line
+bind  pager \eOM        next-line
+bind  pager \e[1~       top
+bind  pager \e[4~       bottom
+
+bind  index <backspace> previous-entry
+bind  index -           previous-entry
+bind  index \eOm        previous-entry
+bind  index +           next-entry
+bind  index \eOk        next-entry
+bind  index \eOM        display-message
+bind  index \e[H        first-entry
+bind  index \e[F        last-entry
+bind  index \e[1~       first-entry
+bind  index \e[4~       last-entry
+
+bind  alias   <space>   select-entry
+bind  alias   x         exit
+bind  attach  x         exit
+bind  browser x         exit
+
+#
+# Color
+#
+mono  message    bold
+color index 	 red		white    ~N    # New
+color status	 blue	        white
+color message    white          red
+color error      brightyellow   red
+color indicator  white          blue
+color tree       brightmagenta  default
+color signature  red            default
+color attachment brightyellow   red
+color search     brightyellow   red
+color tilde      brightmagenta  default
+color markers    brightmagenta  default
+#color bold       brightblack    default
+#color underline  green          default
+color quoted     blue           default
+color quoted1    magenta        default
+color quoted2    red            default
+color quoted3    green          default
+color quoted4    cyan           default
+color quoted5    blue           default
+color quoted6    magenta        default
+color quoted7    red            default
+color quoted8    green          default
+color quoted9    cyan           default
+color hdrdefault brightred      default
+color header     brightmagenta  default  "^(from):"
+color header     brightblue     default  "^(subject):"
+#color header     default        default  "[ \t]+[^:]*$"
+color body       brightcyan     default  \
+  "((ftp|http|https)://|(file|mailto|news):|www\\.)[-a-z@0-9_.:]*[a-z0-9](/[^][{} \t\n\r\"<>()]*[^][{} \t\n\r\"<>().,:])?"
+color body       brightcyan     default  "[-a-z_0-9.+]+@[-a-z_0-9.]+"
+color body       red            default  "(^| )\\*[-a-z0-9����*]+\\*[,.?]?[ \n]"
+
+set     copy=yes    #ALWAYS save copy of sent messages
+set     record="=sent"  #save outgoing mail here
+
+unset	beep_new				# beep when mail arrives
+set	delete=yes				# delete flagged when exiting
+set	fast_reply				# don't ask questions
+set	pager_context=3				# page to page line context
+	# format string for pager - nice
+set	pager_format="[%4C/%4m] (%S%Z) %%=%N $i %> [%lL]"
+set	pager_stop				# don't auto-go to next msg
+set	sort=threads				# default sort order
+set	tilde					# pad empty lines like vi
+
+set	date_format="%Y.%m.%d %H:%M:%S %z"	# dates ISO-8601 format
+set	folder=/home/jpinkham/Maildir				# home of mail folders
+unset	help					# no ui spam
+set	ispell="aspell"
+unset	quit=ask-yes				# don't simply die on 'q'
+
+set	ascii_chars				# ascii chars in threadmarks
+set	auto_tag				#if something is tagged, run commands on tagged msgs
+unset collapse_unread	# don't collapse threads with unread mails
+unset confirmappend	# prompt for confirm when appending message to ex. mbox
+unset header		# quote full header on reply
+set help		# show help in first line of the display
+unset implicit_autoview	# use autoview, if a "copiousoutput" is in mailcap.
+set smart_wrap		# wrap long lines at word boundary.
+set sort_re		# set: only put a child in a thread, if starts with Re:
+unset strict_threads	# thread only by In-Reply-To/References or by Subject.
+set delete=ask-yes		# ask for confirmation when deleting messages?
+set postpone=ask-yes	# ask for postponing when doing an Abort.
+set sort_aux=reverse-date	# sorting the threads
+set status_format="-%r-%v--[%?M?%M/?%m msgs%?n?, %n new?%?d?, %d del?%?F?, %F flag?%?t?, %t tag?%?p?, %p postp?%?b?, %b inc?%?l?, %l?]--(%f)--%s-%>-%P-"
+set status_on_top
+unset arrow_cursor	# "->" as cursor
+
+#macro index   G "!fetchmail -K -L ~/fetchmail.log\n"
+#macro pager   G "!fetchmail -K -L ~/fetchmail.log\n"
+
+#macro index	G imap-fetch-mail
+#macro pager	G imap-fetch-mail
+
+# Index view
+folder-hook .	set sort="threads"
+folder-hook .	set sort_aux=last-date	# by date of last received message
+
+set smart_wrap="yes"		# Wrap between two words
+set markers="yes"		# Display a '+' when a line is wrapped
+set print="ask-yes"		# Avoid printing unintentionnaly
+set auto_tag="yes"		# Functions will affect tagged items
+				# (no need to use the ';' tag-prefix)
+set mail_check=300		# Time in seconds between two checks
+
+
+ignore		*		# We hide every header, except...
+unignore	from: reply-to: date: subject to: cc Followup-To:
+unhdr_order	*		# Display order:
+hdr_order	from: reply-to: date: subject to: cc Followup-To:
+set weed="yes"			# Don't display all the headers
+auto_view text/html text/enriched application/x-gunzip application/postscript /gif application/x-tar-gz application/pgp-signature image/*
+
