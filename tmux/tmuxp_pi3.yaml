@@ -6,9 +6,6 @@ windows:
 - window_name: bash
   panes:
     - bash
-- window_name: Calibre
-  panes:
-  - journalctl --unit calibre-server --follow
 - window_name: syslog 
   panes:
     - tail_syslog.sh
