@@ -126,18 +126,13 @@ if [ -d $HOME/Dropbox/my_py3_env ]; then
 	source $HOME/Dropbox/my_py3_env/bin/activate;
 fi
 
-
-
-
 # Use fancy prompt!
-GOPATH=$HOME/go/bin/
-
 function _update_ps1() {
-    PS1="$($GOPATH/powerline-go -error $? \
+    PS1="$($HOME/bin/powerline-go -error $? \
 						-jobs $(jobs -p | wc -l)\
 						-newline\
 						-git-mode simple\
-						-modules time,git,venv,user,host,cwd,ssh\
+						-modules time,git,venv,user,host,cwd\
 						-cwd-mode plain\
 						-truncate-segment-width 10\
 						-git-disable-stats untracked
@@ -145,7 +140,9 @@ function _update_ps1() {
 #-theme lowcontrast)"
 }
 
-if [ "$TERM" != "linux" ] && [ -f "$GOPATH/powerline-go" ]; then
+# Expected that the proper powerline-go binary has been symlinked to home bin dir already
+if [ -f "$HOME/bin/powerline-go" ]; then
+		echo "About to use powerline-go!"
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
