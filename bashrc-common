@@ -124,6 +124,8 @@ test $MACHTYPE = "x86_64-apple-darwin19" && stty erase ^?
 # if it exists, activate custom python 3 venv
 if [ -d $HOME/Dropbox/my_py3_env ]; then
 	source $HOME/Dropbox/my_py3_env/bin/activate;
+elif [ -d $HOME/my_py3_env ] ; then
+	source  $HOME/my_py3_env/bin/activate;
 fi
 
 # Use fancy prompt!
