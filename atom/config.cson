@@ -29,7 +29,7 @@
     defaultFontSize: 18
     fontFamily: "Fira Mono"
     fontSize: 18
-    softWrapAtPreferredLineLength: true
+    softWrap: true
     softWrapHangingIndent: 2
     tabLength: 4
     tabType: "soft"
@@ -73,7 +73,7 @@
   "linter-shellcheck":
     userParameters: "--check-sourced --external-sources --color=always --shell=bash"
   "linter-ui-default":
-    panelHeight: 98
+    panelHeight: 154
     showPanel: true
   "markdown-preview":
     useGitHubStyle: true
