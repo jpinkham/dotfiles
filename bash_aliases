@@ -77,3 +77,6 @@ alias env_vars='set|head -100|grep -vE "^_"'
 
 # when you want paging + syntax highlighting, make vim behave like "less"
 alias vless='vim -u /usr/share/vim/vim81/macros/less.vim'
+
+# force lifetime to be much longer than usual
+alias ssh-add='ssh-add -v -t 9999999'
