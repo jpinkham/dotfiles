@@ -119,7 +119,11 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin/:/usr/local/sbin:/usr/bin:
 
 stty erase ^H
 # On Mac, it sends ^? from Delete key (no Backspace key)
-test $MACHTYPE = "x86_64-apple-darwin19" && stty erase ^?
+if [ $LC_TERMINAL = "iTerm2" ]; then
+	# On Mac, it sends ^? from Delete key (no Backspace key)
+	echo "    Determined you're using a Mac.  Changing 'stty erase' command"
+	stty erase ^?
+fi
 
 
 # if it exists, activate custom python 3 venv
