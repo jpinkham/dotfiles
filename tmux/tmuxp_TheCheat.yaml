@@ -2,15 +2,18 @@ session_name: JPDefault
 start_directory: $HOME
 shell_command_before: 
   - cd
-  # I have no idea why this isn't ^H, but this is what TheCheat wants
+  # TheCheat is using an Apple keyboard right now 
   - stty erase ^? 
 windows:
+- window_name: GH dev 
+  panes:
+    - eval $(ssh-agent) && ssh-add ~/.ssh/id_github ; cd ~/dev
 - window_name: bash
   panes:
     - bash
-- window_name: bash
+- window_name: Calibre log
   panes:
-    - bash
+    - journalctl --unit calibre-server --follow
 - window_name: htop
   panes:
   - htop
