@@ -1,4 +1,10 @@
 "*":
+  "atom-ide-ui":
+    "atom-ide-console":
+      fontScale: 1
+    use:
+      "atom-ide-diagnostics": "never"
+      "atom-ide-diagnostics-ui": "never"
   "atom-material-ui":
     colors:
       abaseColor: "#5c8dff"
@@ -16,9 +22,6 @@
     suggestionListFollows: "Cursor"
   core:
     audioBeep: false
-    disabledPackages: [
-      "intentions"
-    ]
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
@@ -42,9 +45,11 @@
           "E121"
           "E123"
           "E126"
+          "E127"
           "E226"
           "E24"
           "E704"
+          "E722"
           "W503"
           "W504"
           "E402"
@@ -53,13 +58,16 @@
         ]
         maxLineLength: 120
       pycodestyle:
+        hangClosing: true
         ignore: [
           "E121"
           "E123"
           "E126"
+          "E127"
           "E226"
           "E24"
           "E704"
+          "E722"
           "W503"
           "W504"
           "E402"
@@ -73,7 +81,7 @@
   "linter-shellcheck":
     userParameters: "--check-sourced --external-sources --color=always --shell=bash"
   "linter-ui-default":
-    panelHeight: 154
+    panelHeight: 110
     showPanel: true
   "markdown-preview":
     useGitHubStyle: true
