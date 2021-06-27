@@ -80,3 +80,6 @@ alias vless='vim -u /usr/share/vim/vim81/macros/less.vim'
 
 # Top 10 largest files in current directory
 alias space_hogs='du -chs *|sort -rn|head -11'
+
+# force lifetime to be much longer than usual
+alias ssh-add='ssh-add -v -t 9999999'
