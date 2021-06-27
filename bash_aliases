@@ -77,3 +77,6 @@ alias env_vars='set|head -100|grep -vE "^_"'
 
 # when you want paging + syntax highlighting, make vim behave like "less"
 alias vless='vim -u /usr/share/vim/vim81/macros/less.vim'
+
+# Top 10 largest files in current directory
+alias space_hogs='du -chs *|sort -rn|head -11'
