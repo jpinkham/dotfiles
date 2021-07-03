@@ -4,6 +4,8 @@ Include ~/.ssh/config_local
 Host *
   ForwardAgent yes
   ForwardX11 yes
+	# Mac stores this in different location
+	XAuthLocation /opt/X11/bin/xauth
   # Don't bug me the first time I connect
   StrictHostKeyChecking no
   LogLevel quiet
