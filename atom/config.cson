@@ -29,9 +29,9 @@
     ]
     warnOnLargeFileLimit: 25
   editor:
-    defaultFontSize: 18
-    fontFamily: "Fira Mono"
-    fontSize: 18
+    defaultFontSize: 20
+    fontFamily: "Courier"
+    fontSize: 20
     softWrap: true
     softWrapHangingIndent: 2
     tabLength: 4
@@ -82,7 +82,6 @@
     userParameters: "--check-sourced --external-sources --color=always --shell=bash"
   "linter-ui-default":
     panelHeight: 110
-    showPanel: true
   "markdown-preview":
     useGitHubStyle: true
   "one-dark-ui":
