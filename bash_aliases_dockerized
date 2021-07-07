@@ -5,7 +5,8 @@ echo "Docker is installed. Loading dockerized bash aliases."
 # you MUST use only "-i" in order to avoid "not a TTY" error
 
 alias binwalk="docker run -it knowl3dge/binwalk"
-alias jq="docker run --rm -i stedolan/jq -C"
+# this overkill, just use binary
+# alias jq="docker run --rm -i stedolan/jq -C"
 alias lynx="docker run --rm -it jessfraz/lynx"
 alias nikto="docker run --rm sullo/nikto"
 alias nmap="docker run --rm -it --net host jessfraz/nmap"
