@@ -44,8 +44,8 @@ alias arin_email='whois -h whois.arin.net + e @'
 # nicer diff output; easier to make sense of
 alias diff='diff --suppress-common-lines --side-by-side --color'
 # Neither Mac nor Linux supports color option (booooo)
-test $MACHTYPE = "x86_64-apple-darwin19" && alias diff='diff --suppress-common-lines --side-by-side'
-test $MACHTYPE = "x86_64-redhat-linux-gnu" && alias diff='diff --suppress-common-lines --side-by-side'
+test "$MACHTYPE" = "x86_64-apple-darwin19" && alias diff='diff --suppress-common-lines --side-by-side'
+test "$MACHTYPE" = "x86_64-redhat-linux-gnu" && alias diff='diff --suppress-common-lines --side-by-side'
 
 # Pretty Print json -- requires package "pretty-json"
 alias jsonpp="python -m json.tool"
