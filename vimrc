@@ -6,6 +6,14 @@ set laststatus=2
 
 filetype plugin on
 
+" this modeline stuff came from https://www.gilesorr.com/blog/vim-tips-22-modelines.html
+" Modelines - vim settings embedded in files - are awesome ... until
+" they're a danger.  Disable them:
+set nomodeline
+" toggle use of 'modeline' command.  Doesn't reload the
+" settings until you do BufRead.  vimrc doesn't support the command
+" separator '|' so we use '<bar>':
+nnoremap <leader>ml :setlocal invmodeline <bar> doautocmd BufRead<cr>
 
 " if syntax highlighting is supported, turn it on
 syntax on
