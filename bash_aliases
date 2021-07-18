@@ -1,3 +1,6 @@
+# vim: syntax=shell
+# shellcheck shell=bash
+    
 alias grep='grep --color=auto'
 
 alias flush_memcache="echo flush_all | nc localhost 11211"
