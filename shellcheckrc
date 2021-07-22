@@ -1,0 +1,6 @@
+shell=bash
+
+disable=SC2086,SC2046,SC1091
+# SC2086 - Double quote to prevent globbing and word splitting (wants me to surround vars with double quotes)
+# SC2046 - Quote this to prevent word splitting
+# SC1091 - Not following <filename> (happens when trying to "source" a file and can't find or read it)

@@ -1,7 +1,9 @@
+# shellcheck shell=bash
+
 # Contains aliases for Dockerized versions of tools I use
 echo "Docker is installed. Loading dockerized bash aliases."
- 
-# WARN! WARN!  For apps that will accept input from STDOUT (piping), 
+
+# WARN! WARN!  For apps that will accept input from STDOUT (piping),
 # you MUST use only "-i" in order to avoid "not a TTY" error
 
 alias binwalk="docker run -it knowl3dge/binwalk"

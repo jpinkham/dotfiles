@@ -41,6 +41,7 @@
   "ide-python":
     pylsPlugins:
       flake8:
+        enabled: true
         ignore: [
           "E121"
           "E123"
@@ -57,6 +58,10 @@
           "E501"
         ]
         maxLineLength: 120
+      jedi_hover:
+        enabled: false
+      mccabe:
+        enabled: false
       pycodestyle:
         hangClosing: true
         ignore: [
@@ -75,13 +80,18 @@
           "E501"
         ]
         maxLineLength: 120
+      pylint:
+        enabled: true
       pyls_mypy:
         enabled: false
         live_mode: false
+    python: "$PIPENV_PATH/bin/python"
   "linter-shellcheck":
-    userParameters: "--check-sourced --external-sources --color=always --shell=bash"
+    enableNotice: true
+    userParameters: "--check-sourced --external-sources --color=always --shell=bash -e SC2086,SC2046,SC1091"
   "linter-ui-default":
-    panelHeight: 110
+    panelHeight: 185
+    showPanel: true
   "markdown-preview":
     useGitHubStyle: true
   "one-dark-ui":
