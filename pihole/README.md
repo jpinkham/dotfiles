@@ -5,7 +5,7 @@ BLUF: Ad blocker that you can use for your whole house/network. Also, it can blo
 Check out [the pihole website](https://pi-hole.net/) for full details
 
 ### But how?
-Set up pihole to be your DNS server. When pihole gets a request to find the IP of a site on the blocklist, it returns 0.0.0.0  (aka  ¯\_(ツ)_/¯). Then your browser or other devices has no idea how to reach the blocked site and just gives up.
+Set up pihole to be your DNS server. When pihole gets a request to find the IP of a site on the blocklist, it returns 0.0.0.0  (aka  ¯\\_(ツ)_/¯). Then your browser or other devices has no idea how to reach the blocked site and usually just gives up.
 
 Seriously, go read about it on the pihole site, they do a much better job describing it.
 
