@@ -1,0 +1,17 @@
+# WARN - these lists of known spam, tracking, malware, etc
+# are very large and will create a database of over 1 MILLION
+# sites.  Some of the entries may cause you issues when browsing and
+# you'll need to whitelist individual domains from a list.
+# I DO NOT RECOMMEND THESE FOR NOVICES, wait until you try the
+# default lists already provided and see what isn't blocked, then slowly
+# add one list at a time until you have a lot of things blocked that are
+# annoyances, dangerous, or violate your privacy
+#
+# Once you "subscribe" to one of these lists, Pihole will automatically
+# keep your local database updated weekly with the latest versions of these lists
+
+https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+https://mirror1.malwaredomains.com/files/justdomains
+https://sysctl.org/cameleon/hosts
+https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt
+https://s3.amazonaws.com/lists.disconnect.me/simple_ad.txt
