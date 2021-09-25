@@ -11,7 +11,6 @@ export HISTSIZE=50000000
 export HISTFILESIZE=500000000
 export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
-export HISTCONTROL=ignoreboth
 
 #Source: https://stackoverflow.com/questions/38526588/linux-command-history-with-date-and-time
 export HISTTIMEFORMAT="%Y-%m-%d %T "
@@ -119,13 +118,12 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin/:/usr/local/sbin:/usr/bin:
 
 
 stty erase ^H
-# On Mac, it sends ^? from Delete key (no Backspace key)
-if [ $LC_TERMINAL = "iTerm2" ]; then
+# On Mac, it sends ^? from Delete key (no Backspace key
+if [[ $LC_TERMINAL == "iTerm2" ]]; then
 	# On Mac, it sends ^? from Delete key (no Backspace key)
 	echo "    Determined you're using a Mac.  Changing 'stty erase' command"
 	stty erase ^?
 fi
-
 
 # if it exists, activate custom python 3 venv
 if [ -d $HOME/Dropbox/my_py3_env ]; then
@@ -150,7 +148,7 @@ function _update_ps1() {
 
 # Expected that the proper powerline-go binary has been symlinked to home bin dir already
 if [ -f "$HOME/bin/powerline-go" ]; then
-		echo "About to use powerline-go!"
+#		echo "About to use powerline-go!"
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 

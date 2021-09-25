@@ -4,7 +4,7 @@ start_directory: $HOME
 windows:
 - window_name: GH dev 
   panes:
-  - eval $(ssh-agent) && ssh-add ~/.ssh/github_rsa ~/.ssh/id_rsa && ssh-add -l
+  - cd dev
 - window_name: bash
   panes:
     - 

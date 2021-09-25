@@ -8,7 +8,7 @@ if [ -f "$HOME/dev/dotfiles/bashrc-common" ]; then
     echo "Common bashrc file loaded successfully!";
     echo "Loading customizations for this environment";
 else
-    echo "WARN! bash-common was not found!";
+    echo "WARN! bashrc-common was not found!";
 fi
 
 ################ Start unique settings
