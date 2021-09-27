@@ -7,23 +7,25 @@ shell_command_before:
 windows:
 - window_name: GH dev 
   panes:
-    - eval $(ssh-agent) && ssh-add ~/.ssh/id_github ; cd ~/dev
+    - cd ~/dev; update_repos.sh .
+- window_name: bash
+  panes:
+    - bash
 - window_name: bash
   panes:
     - bash
 - window_name: Calibre log
   panes:
     - journalctl --unit calibre-server --follow
+- window_name: syslog 
+  panes:
+  - /home/jpinkham/dev/rando_scripts/tail_syslog.sh
+- window_name: combo_syslog 
+  panes:
+  - /home/jpinkham/dev/rando_scripts/tail_combo_logs.sh
 - window_name: htop
   panes:
   - htop
-- window_name: syslog 
-  panes:
-  - /home/jpinkham/dev/rando_scripts/tail_syslog.sh 
-- window_name: combo_syslog 
-  panes:
-  - sudo tail -n 50 --follow=name --retry /usr/share/extra_storage/syslog/all_remote_syslogs.log|grep -ivE 'rngd|cron|php|locale|accordingly|reloading.|apt-daily|daily apt|cleanup|calibre|slice|session|succeeded|tracker|sudo'
-
 
 
 
