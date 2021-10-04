@@ -1,5 +1,6 @@
 # vim: syntax=shell
-# shellcheck shell=bash
+# shellcheck shell=bash 
+# shellcheck disable=SC1091
     
 alias grep='grep --color=auto'
 
@@ -72,6 +73,10 @@ alias history="PAGER=more history"
 
 
 alias testssl='cd $HOME/dev/openstack_stuff/testssl.sh-3.1dev; ./testssl.sh --quiet --protocols --server-preference --nodns min --server-defaults --vulnerable --ids-friendly --headers '
+
+alias arin="whois -h whois.arin.net"
+alias ripe="whois -h whois.ripe.net"
+alias apnic="whois -h whois.apnic.net"
 
 alias nmap_ssl='nmap -p 443 --script "ssl-c*" --script "ssl-d*" --script ssl-enum-ciphers --script ssl-known-key'
 
