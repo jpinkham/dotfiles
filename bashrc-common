@@ -2,6 +2,8 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
+export LANG=en_US.UTF-8
+
 # several history-related options taken from https://github.com/greenmoss/home/blob/master/.bashrc
 export EDITOR=vim
 export VISUAL=$EDITOR

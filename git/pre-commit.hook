@@ -1,49 +1,8 @@
-#!/bin/sh
-#
-# this is from sample hook
-if git rev-parse --verify HEAD >/dev/null 2>&1
-then
-	against=HEAD
-else
-	# Initial commit: diff against an empty tree object
-	against=$(git hash-object -t tree /dev/null)
-fi
+#!/usr/bin/env bash
 
-# If you want to allow non-ASCII filenames set this variable to true.
-allownonascii=$(git config --type=bool hooks.allownonascii)
+echo "+++ PRE-COMMIT HOOK Starting! +++"
 
-# Redirect output to stderr.
-exec 1>&2
-
-# Cross platform projects tend to avoid non-ASCII filenames; prevent
-# them from being added to the repository. We exploit the fact that the
-# printable range starts at the space character and ends with tilde.
-if [ "$allownonascii" != "true" ] &&
-	# Note that the use of brackets around a tr range is ok here, (it's
-	# even required, for portability to Solaris 10's /usr/bin/tr), since
-	# the square bracket bytes happen to fall in the designated range.
-	test $(git diff --cached --name-only --diff-filter=A -z $against |
-	  LC_ALL=C tr -d '[ -~]\0' | wc -c) != 0
-then
-	cat <<\EOF
-Error: Attempt to add a non-ASCII file name.
-
-This can cause problems if you want to work with people on other platforms.
-
-To be portable it is advisable to rename the file.
-
-If you know what you are doing you can disable this check using:
-
-  git config hooks.allownonascii true
-EOF
-	exit 1
-fi
-
-
-# If there are whitespace errors, print the offending file names and fail.
-exec git diff-index --check --cached $against --
-
-# copied from https://gist.github.com/nilsding/b6105a8949955ce81f82dabc37650640
+# Adapted from https://gist.github.com/nilsding/b6105a8949955ce81f82dabc37650640
 # Print a message
 #
 # Params:
@@ -63,6 +22,7 @@ print_msg() {
   esac
   shift
   # shellcheck disable=SC1117
+  sleep 1 
   printf " \033[${color}m*\033[0;1m %s\033[0m\n" "$*"
 }
 
@@ -84,15 +44,23 @@ require_app() {
 
 require_app shellcheck || exit 0
 
+# JP: my git hooks will end in .hook and they are shell scripts
 changed_shell_files=$(
   git diff --cached --name-only --diff-filter=ACM |
-  xargs grep -lE '^#!/.*(sh|bash|ksh)'
+  xargs grep -lE '^#!/*(sh|bash|ksh|hook)'
 )
+
+if [[ -z $changed_shell_files ]]; then
+    echo "  No changed shell files. Skipping shellcheck"
+    echo "+++ PRE-COMMIT HOOK Complete +++"
+    exit 0
+fi
 
 print_msg yellow "Running shellcheck..."
 # shellcheck disable=SC2086
 if shellcheck -a $changed_shell_files; then
   print_msg green "shellcheck approved!"
+  echo "+++ PRE-COMMIT HOOK Complete +++"
 else
   print_msg red "shellcheck is sadface! (return code: $?), "\
                 "fix the errors and come back later"

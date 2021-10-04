@@ -16,5 +16,6 @@ alias testssl="docker run --rm -ti  drwetter/testssl.sh"
 # Only if docker is installed
 alias nikto_ssl='nikto -port 443 -Plugins ssl'
 #     alias perlcritic='sudo docker run --user "$(id -u)" --volume "$HOME:$HOME" perlcritic --statistics'
-alias shellcheck='sudo docker run --user "$(id -u)" --volume "$HOME:$HOME" koalaman/shellcheck'
+# overkill, just run binary
+# alias shellcheck='sudo docker run --user "$(id -u)" --volume "$HOME:$HOME" koalaman/shellcheck'
 alias trivy='sudo docker run --user "$(id -u)" --volume $HOME:$HOME -i aquasec/trivy '
