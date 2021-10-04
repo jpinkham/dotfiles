@@ -5,9 +5,13 @@ windows:
 - window_name: GH dev 
   panes:
   - cd dev
+  - update_repos.sh .
 - window_name: bash
   panes:
     - 
+- window_name: MobSF 
+  panes:
+    - sudo docker run -it --rm --name mobsf -p 8000:8000 opensecurity/mobile-security-framework-mobsf:latest
 - window_name: bash
   panes:
     - 
