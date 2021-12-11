@@ -6,16 +6,16 @@ shell_command_before:
 windows:
 - window_name: bash
   panes:
-    - bash
+    - clear 
 - window_name: bash
   panes:
-    - eval `ssh-agent -s` && ssh-add ~/.ssh/id_github_rsa
+    - clear 
 - window_name: htop
   panes:
   - htop
 - window_name: syslog 
   panes:
-  - tail -n 250 -F /var/log/system.log wifi.log install.log |grep -ivE 'rngd|cron|php|locale|accordingly|reloading.|cleanup|calibre|slice|session|succeeded|tracker|ituneshelper|safari|firefox|asl sender|imfoundation'
+  - tail -n 250 -F /var/log/system.log wifi.log install.log |grep -ivE 'rngd|cron|php|locale|accordingly|reloading.|cleanup|calibre|slice|session|succeeded|tracker|ituneshelper|safari|firefox|asl sender|imfoundation|mds'
 
 
 
