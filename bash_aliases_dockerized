@@ -19,3 +19,6 @@ alias nikto_ssl='nikto -port 443 -Plugins ssl'
 # overkill, just run binary
 # alias shellcheck='sudo docker run --user "$(id -u)" --volume "$HOME:$HOME" koalaman/shellcheck'
 alias trivy='sudo docker run --user "$(id -u)" --volume $HOME:$HOME -i aquasec/trivy '
+
+alias ocrmypdf='docker run --rm --volume $HOME:$HOME -i jbarlow83/ocrmypdf'
+
