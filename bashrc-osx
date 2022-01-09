@@ -13,20 +13,42 @@ else
     echo "WARN! bash-common was not found!";
 fi
 
+##### Customized env vars, related to HomeBrew installs
+#
 # apps/libs installed by homebrew as "kegs", which are not symlinked to /usr/local, to avoid collision
-#    with pre-existing macOS installations.  I want to use the newer versions that are kegs, so their path
-#    will be pre-pended
+#    with pre-existing macOS installations.  I want to use the newer versions that 
+#    are kegs, so their path will be pre-pended
+# NOTE: This also affects CPPFLAGS, LDFLAGS, and PKG_CONFIG_PATH env vars
 
-JP_KEG_PATH="/usr/local/opt/sqlite/bin:/usr/local/opt/python@3.9/bin:/usr/local/opt/openssl@1.1/bin:/usr/local/lib/ruby/gems/3.0.0/bin:/usr/local/opt/ruby/bin"
+JP_KEG_PATH="/usr/local/opt/openjdk/bin:/usr/local/opt/sqlite/bin:/usr/local/opt/python@3.9/bin:/usr/local/opt/openssl@1.1/bin:/usr/local/lib/ruby/gems/3.0.0/bin:/usr/local/opt/ruby/bin"
 
-# my own scripts :           Homebrew  apps         : python apps i installed : everything else already in $PATH
-export PATH=$HOME/bin:$JP_KEG_PATH:/usr/local/bin:/usr/local/sbin:~/Library/Python/3.8/bin/:$PATH
-#echo "PATH is now set to >$PATH<"
+JP_CPP_FLAGS="-I/usr/local/opt/openjdk/include -I/usr/local/opt/ruby/include -I/usr/local/opt/sqlite/include -I/usr/local/opt/icu4c/include -I/usr/local/opt/libffi/include "
+
+JP_LD_FLAGS="-L/usr/local/opt/ruby/lib -L/usr/local/opt/sqlite/lib "
+
+JP_PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig:/usr/local/opt/sqlite/lib/pkgconfig:/usr/local/opt/sqlite/lib/pkgconfig/ "
+
+# my own scripts :           Homebrew  apps         :      pip-installed bins : everything else
+export PATH="$HOME/bin:$JP_KEG_PATH:/usr/local/bin:/usr/local/sbin:~/Library/Python/3.8/bin/:$PATH"
+export PKG_CONFIG_PATH="$JP_PKG_CONFIG_PATH:$PKG_CONFIG_PATH"
+
+export CPPFLAGS="$JP_CPP_FLAGS $CPPFLAGS"
+
+export LDFLAGS="$JP_LD_FLAGS $LDFLAGS"
+
+
+
+##### OSX-specific aliases
 
 alias top="top -stats pid,command,cpu,state,user,mem,ppid -F -n 20"  #BSD top works different than Linux version
 
 # Installed from https://golang.org/dl/
 alias go="/usr/local/go/bin/go"
+
+
+
+
+
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
@@ -34,18 +56,8 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 # Source: https://scriptingosx.com/2019/06/moving-to-zsh/
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-# suggested by homebrew, after installing openjdk on 1/24/2021
-export CPPFLAGS="-I/usr/local/opt/openjdk/include"
 
 # homebrew bash completions (installed via "homebrew bash-completion")
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
-##export PYTHONPATH="/Library/Python/3.8/site-packages/:
-#
-#For compilers to find ruby you may need to set:
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include $CPPFLAGS"
-
-#For pkg-config to find ruby you may need to set:
-export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 #
