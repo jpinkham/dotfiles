@@ -18,7 +18,7 @@ alias nikto_ssl='nikto -port 443 -Plugins ssl'
 #     alias perlcritic='sudo docker run --user "$(id -u)" --volume "$HOME:$HOME" perlcritic --statistics'
 # overkill, just run binary
 # alias shellcheck='sudo docker run --user "$(id -u)" --volume "$HOME:$HOME" koalaman/shellcheck'
-alias trivy='sudo docker run --user "$(id -u)" --volume $HOME:$HOME -i aquasec/trivy '
+alias trivy='sudo docker run --user "$(id -u)" --volume $HOME:$HOME -i aquasec/trivy --cache-dir $HOME/cache/trivy'
 
 alias ocrmypdf='docker run --rm --volume $HOME:$HOME -i jbarlow83/ocrmypdf'
 
