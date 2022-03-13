@@ -23,8 +23,3 @@ host gitlab.com
 	User git
 	IdentityFile ~/.ssh/id_gitlab
 
-host dietpihole
-  User dietpi
-
-host raspberrypi3
-  User pi
