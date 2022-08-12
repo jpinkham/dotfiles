@@ -25,14 +25,23 @@ shopt -s lithist
 shopt -s histverify
 # append bash history
 shopt -s histappend
-
-
 # expand aliases for non-login shell
 shopt -s expand_aliases
-
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
+# enable Bash Extended Globbing expressions
+shopt -s extglob 
+# This option and the function below were stolen from https://stackoverflow.com/a/54766117
+# Strips common ANSI codes from a text stream
+#
+ansi_filter() {
+    local line
+    local IFS=
+       while read -r line || [[ "$line" ]]; do
+           echo "${line//$'\e'[\[(]*([0-9;])[@-n]/}"
+       done
+}
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
