@@ -133,3 +133,7 @@ hdr_order	from: reply-to: date: subject to: cc Followup-To:
 set weed="yes"			# Don't display all the headers
 auto_view text/html text/enriched application/x-gunzip application/postscript /gif application/x-tar-gz application/pgp-signature image/*
 
+# Reference: https://brianbuccola.com/how-to-mark-all-emails-as-read-in-mutt/
+macro index A \
+    "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
+    "mark all new as read"

@@ -110,3 +110,7 @@ node_modules/
 dist/
 .eslintcache
 
+
+# Mine
+# ####
+not_yet_in_get
